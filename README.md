@@ -11,10 +11,11 @@
 ### Tecnologias usadas no front:
 - HTML, CSS e JS;
 - CSS:
-  - SASS: Pré processador de CSS;
-  - Bootstrap;
+  - SaSS;
 - JS: 
   - React;
+  - React Router;
 
 ### Tecnologias usadas no Back:
-- Python
+- Python:
+  - Flask;

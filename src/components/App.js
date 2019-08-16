@@ -1,10 +1,14 @@
 import React from 'react';
 import {Component} from 'react';
+import {Route, NavLink, HashRouter} from 'react-router-dom';
+import Header from './Header';
+import PaginaInicial from './PaginaInicial';
+import './App.css';
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {nome: '', telefone: 123, temFilhos: true};
+    this.state = {};
   }
 
   // METODOS QUE EU CRIEI
@@ -14,7 +18,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>oi</h1>
+        <Header></Header>
+        <PaginaInicial></PaginaInicial>
       </div>
     );
   }
