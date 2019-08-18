@@ -3,7 +3,7 @@ import {Component} from 'react';
 import {Route, NavLink, HashRouter} from 'react-router-dom';
 import Header from './Header';
 import PaginaInicial from './PaginaInicial';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   constructor() {
