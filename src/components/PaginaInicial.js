@@ -1,7 +1,5 @@
 import React from 'react';
-
-const data = new Date();
-const ano = data.getFullYear();
+import Footer from './Footer';
 
 const PaginaInicial = props => {
   return (
@@ -37,7 +35,7 @@ const PaginaInicial = props => {
           </p>
         </div>
       </div>
-      <footer>Prática de Lembrar &copy; {ano}</footer>
+      <Footer />
     </div>
   );
 };

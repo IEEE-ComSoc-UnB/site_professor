@@ -1,8 +1,9 @@
 import React from 'react';
 import {Component} from 'react';
-import {Route, NavLink, HashRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Header from './Header';
 import PaginaInicial from './PaginaInicial';
+import Login from './Login';
 import './App.scss';
 
 class App extends Component {
@@ -17,10 +18,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Header></Header>
-        <PaginaInicial></PaginaInicial>
-      </div>
+      <Router>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route path="/" exact component={PaginaInicial} />
+            <Route path="/login" component={Login} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
