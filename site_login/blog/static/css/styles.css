@@ -1,77 +1,262 @@
-.row {
-    margin-left: 0;
-    margin-right: 0;
+<style>
+/* VARIAVEIS
+$preto: #241f20;
+$pretohover: #464142;
+$verde: #4ad893;
+$verdehover: #93feca;
+$amarelo: #fef900;
+$branco: #eee; */
+
+/* CONFIGURACOES GERAIS */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  box-sizing: border-box;
 }
 
-.col {
-	padding-left: 0;
-	padding-right: 0;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+  color: #241f20;
+  font-family: sans-serif, helvetica;
 }
 
-.navbar {
-	background-color: #29AB87;
+a {
+  text-decoration: none;
 }
 
-.navbar .navbar-brand {
-	color: #FFF;
+li {
+  list-style-type: none;
 }
 
-.navbar .navbar-brand:hover {
-	color: #FFF;
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
 
-.navbar .nav-item .nav-link {
-	color: #FFF;
-	transition: .5s;
+/* FOOTER */
+.Footer {
+  font-size: 1.3rem;
+  text-align: center;
+  background: #241f20;
+  color: #eee;
+  padding: 25px 0;
 }
 
-.navbar .nav-item .nav-link:hover {
-	background-color: #FFF;
-	color:#29AB87;
+/* HEADER */
+header {
+  background-color: #241f20;
+  color: #eee;
+  padding: 1.5vh 0;
+
+  img {
+    height: 3rem;
+    cursor: pointer;
+  }
+  .login {
+    background-color: $verde;
+    padding-left: 40px;
+    text-align: center;
+    color: #241f20
+    border-radius: 60px;
+    padding: 8px 40px;
+    transition: 400ms background-color ease-in-out;
+  }
+
+  .login:hover {
+    background-color: $verdehover;
+    color: #241f20
+  }
+
+  .grid-navbar {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .logo {
+    align-self: center;
+    justify-self: left;
+  }
+
+  .hamburguer {
+    display: none;
+    font-size: 2.2rem;
+  }
+
+  ul {
+    align-self: center;
+    justify-self: right;
+  }
+
+  li {
+    display: inline;
+    margin-right: 55px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 400ms color;
+    color: #eee;
+  }
+  li:hover {
+    color: $verde;
+  }
 }
 
-.card {
-	margin: auto;
-	border-radius: 0;
+/* MEDIA QUERIES HEADER */
+@media screen and (max-width: 865px) {
+  header {
+    .hamburguer {
+      display: block;
+      margin: 1px;
+      align-self: center;
+      justify-self: right;
+    }
+    ul {
+      display: none;
+    }
+    .logo {
+      align-self: center;
+      justify-self: left;
+    }
+    .grid-navbar {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }
 
-.card-img-top {
-	border-radius: 0;
+/* PAGINA INICIAL */
+.grid-pagina-inicial {
+  display: grid;
+  grid-template-columns: 30% 70%;
 }
 
-.card .btn-primary {
-	background-color: #29AB87;
-	border-color: #29AB87;
+.PaginaInicial {
+  animation-name: fadeIn;
+  animation-duration: 700ms;
+  transition-timing-function: ease;
+  height: 100%;
+
+  section {
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .grid-pagina-inicial p {
+    background: #ccc;
+    padding: 30px;
+  }
 }
 
-.card .btn-primary:hover {
-	background-color: #FFF;
-	color: #29AB87;
+/* LOGIN */
+
+.Login {
+  animation-name: fadeIn;
+  animation-duration: 700ms;
+  transition-timing-function: ease;
+  text-align: center;
+  /* height: 75vh;*/
+
+  input {
+    font-size: 20px;
+    margin: 10px 0;
+    border-radius: 35px;
+    background: none;
+    padding: 10px;
+    border: $preto 1px solid;
+    text-align: center;
+    width: 35%;
+    outline: none;
+    transition: width 250ms ease-in-out, border 250ms ease-in-out;
+  }
+
+  input:hover,
+  input:focus {
+    color: #241f20
+    width: 45%;
+    border: $verde 1px solid;
+  }
+
+  button {
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: helvetica;
+    width: 200px;
+    border-radius: 100px;
+    border: none;
+  }
+
+  .login {
+    color: #241f20
+    background-color: $verde;
+    width: 15%;
+    transition: 300ms background-color ease-in-out;
+    margin-right: 20px;
+  }
+
+  .login:hover {
+    background-color: $verdehover;
+  }
+
+  .criar_conta {
+    color: #eee;
+    background-color: #241f20
+    width: 15%;
+    transition: 300ms background-color ease-in-out;
+    margin-left: 20px;
+  }
+
+  .criar_conta:hover {
+    background-color: $pretohover;
+  }
 }
 
-.row .jumbotron {
-	background-color: #00A572;
-	color: #FFF;
-	margin-top: 50px;
+/* MEDIA QUERIES LOGIN */
+@media screen and (max-width: 865px) {
+  .Login {
+    button {
+      display: block;
+      text-align: center;
+    }
+
+    .criar_conta {
+      margin: 15px auto;
+      width: 35%;
+    }
+
+    .login {
+      margin: 15px auto;
+      width: 35%;
+    }
+
+    input {
+      width: 50%;
+    }
+
+    input:hover,
+    input:hover {
+      width: 60%;
+    }
+  }
 }
 
-.card .btn.btn-primary {
-	margin: auto;
-	display: block;
-}
+/* ANIMACOES */
 
-.logged-in-p {
-	background-color: #000;
-	color: #FFF;
-	padding: 10px;
-	width: 100%;
-}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
 
-.logged-in-p span {
-	display: block;
-	float: right;
+  100% {
+    opacity: 1;
+  }
 }
-
-.logged-in-p a {
-	color: #ffe484;
-}
+</style>
