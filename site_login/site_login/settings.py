@@ -25,7 +25,7 @@ SECRET_KEY = '91%8(@n$uya#c!rtp*z$oz!txwifok^wc5962o%3=s-f=^-xwy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',

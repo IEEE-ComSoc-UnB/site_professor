@@ -1,4 +1,4 @@
-{% load compress %}
+<!-- {% load compress %} -->
 {% load staticfiles %}
 
 <!DOCTYPE html>
@@ -6,9 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	
-  {% compress css %}
-  	<link href="{% static 'css/styles.scss' %}"  type="text/x-scss" rel="stylesheet">
-  {% endcompress %}
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
 	<link rel="icon" href="%PUBLIC_URL%/img/pratica_de_lembrar_icone.png" />
 	<link
 		rel="stylesheet"
@@ -46,7 +44,7 @@
 		  </Link>
 		  <ul>
 			<Link to="/sobre-nos">
-		      <li>Quem Somos</li>
+		    <li>Quem Somos</li>
 			</Link>
 			<Link to="/contact">
 				<li>Missão</li>
