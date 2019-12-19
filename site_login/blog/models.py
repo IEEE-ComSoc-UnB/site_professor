@@ -9,7 +9,7 @@ class Usuario(models.Model):
         self.escolaridade = escolaridade
         self.curso = curso
         self.nacionalidade = nacionalidade
-        self.perfil_especifico = PerfilGeral.definir_perfil(self.nome, self.idade, self.genero, self.escolaridade, self.curso, self.nacionalidade)
+        self.perfil_especifico = PerfilGeral.definir_perfil(self)
 
 class PerfilGeral(models.Model):
 
@@ -19,19 +19,19 @@ class PerfilGeral(models.Model):
         self.perguntas = perguntas  #Quais perguntas os advogados velhos respondem
 
     @staticmethod
-    def definir_perfil(nome, idade, genero, escolaridade, curso, nacionalidade):
-        if
-            id = 1
-        elif
-            id = 2
-        elif
-            id = 3
-        elif
-            id = 4
-        elif
-            id = 5
+    def definir_perfil(usuario):
+        # if
+        #     id = 1
+        # elif
+        #     id = 2
+        # elif
+        #     id = 3
+        # elif
+        #     id = 4
+        # elif
+        #     id = 5
             
-        return id
+        return usuario.idade
 
 # class Formulario(models.Model):
 

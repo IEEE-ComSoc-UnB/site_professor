@@ -30,25 +30,25 @@ ALLOWED_HOSTS = ['*']
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+    # 'compressor.finders.CompressorFinder',
 ]
 
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
+# COMPRESS_PRECOMPILERS = (
+#     ('text/x-scss', 'django_libsass.SassCompiler'),
+# )
 
-COMPRESS_CSS_FILTERS = [
-    'django_compressor_autoprefixer.AutoprefixerFilter',
-    'compressor.filters.cssmin.CSSMinFilter',
-    'compressor_postcss.PostCSSFilter',
-]
+# COMPRESS_CSS_FILTERS = [
+#     'django_compressor_autoprefixer.AutoprefixerFilter',
+#     'compressor.filters.cssmin.CSSMinFilter',
+#     'compressor_postcss.PostCSSFilter',
+# ]
 
-COMPRESS_POSTCSS_PLUGINS = (
-    'autoprefixer',
-    'postcss-font-magician'
-)
+# COMPRESS_POSTCSS_PLUGINS = (
+#     'autoprefixer',
+#     'postcss-font-magician'
+# )
 
-COMPRESS_ENABLED = True
+# COMPRESS_ENABLED = True
 
 # Application definition
 
@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'compressor',
+    # 'compressor',
     'blog',
     'account'
 ]

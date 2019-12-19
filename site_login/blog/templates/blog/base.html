@@ -1,4 +1,3 @@
-<!-- {% load compress %} -->
 {% load staticfiles %}
 
 <!DOCTYPE html>
@@ -39,19 +38,19 @@
 <body>
 	<header>
 		<div className="container grid-navbar">
-		  <Link to="/" className="logo">
-			<img src="blog/img/pratica_de_lembrar.png" alt="Pratica de lembrar" />
-		  </Link>
+		  <a href="/" className="logo">
+			<img src="/img/pratica_de_lembrar.png" alt="Pratica de lembrar" />
+		  </a>
 		  <ul>
-			<Link to="/sobre-nos">
+			<a href="/sobre-nos">
 		    <li>Quem Somos</li>
-			</Link>
-			<Link to="/contact">
+			</a>
+			<a href="/contato">
 				<li>Missão</li>
-			</Link>
-			<Link to="/login">
+			</a>
+			<a href="/account/login">
 			  <li className="login">Login</li>
-			</Link>
+			</a>
 		  </ul>
 		  <p className="hamburguer">&#9776;</p>
 		</div>
