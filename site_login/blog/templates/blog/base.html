@@ -1,12 +1,14 @@
 {% load compress %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="utf-8" />
-	{% compress css %}
-		<link type="text/x-scss" rel="stylesheet" href="{% static 'css/styles.scss' %}">
-	{% endcompress %}
+	
+  {% compress css %}
+  	<link href="{% static 'css/styles.scss' %}"  type="text/x-scss" rel="stylesheet">
+  {% endcompress %}
 	<link rel="icon" href="%PUBLIC_URL%/img/pratica_de_lembrar_icone.png" />
 	<link
 		rel="stylesheet"

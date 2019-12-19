@@ -37,6 +37,19 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 
+COMPRESS_CSS_FILTERS = [
+    'django_compressor_autoprefixer.AutoprefixerFilter',
+    'compressor.filters.cssmin.CSSMinFilter',
+    'compressor_postcss.PostCSSFilter',
+]
+
+COMPRESS_POSTCSS_PLUGINS = (
+    'autoprefixer',
+    'postcss-font-magician'
+)
+
+COMPRESS_ENABLED = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'compressor'
+    'compressor',
     'blog',
     'account'
 ]
@@ -115,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
@@ -129,7 +142,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
