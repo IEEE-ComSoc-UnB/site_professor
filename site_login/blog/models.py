@@ -1,22 +1,34 @@
 from django.db import models
 
-class Usuario(models.Model):
+class Cliente(models.Model):
 
-    def __init__(self, nome, idade, genero, escolaridade, curso, nacionalidade):
-        self.idade = idade
-        self.nome = nome
-        self.genero = genero
-        self.escolaridade = escolaridade
-        self.curso = curso
-        self.nacionalidade = nacionalidade
-        self.perfil_especifico = PerfilGeral.definir_perfil(self)
+    FundIn = 'FI'
+    FundCom = 'FC'
+    MedioIn = 'MI'
+    MedioCom = 'MC'
+    Sup = 'SUP'
+
+    escolaridades = [(FundIn, 'Ensino Fundamental Incompleto'),
+        (FundCom, 'Ensino Fundamental Completo'),
+        (MedioIn, 'Ensino Medio Incompleto'),
+        (MedioCom, 'Ensino Medio Completo'),
+        (Sup, 'Ensino Superior Completo')
+    ]
+
+    nome = models.CharField('Nome do Usuário', max_length=120, blank=False)
+    idade = models.IntegerField(blank=False)
+    email = models.EmailField('Email', max_length=254, blank=False)
+    genero = models.CharField('Gênero', max_length=120, blank=False)
+    escolaridade = models.CharField('Escolaridade', choices=escolaridades, max_length=2)
+    curso = models.CharField('Curso', max_length=120, blank=False)
+    nacionalidade = models.CharField('Nacionalidade', max_length=120, blank=False)
+    # perfil_especifico = PerfilGeral.definir_perfil(self)
 
 class PerfilGeral(models.Model):
 
-    def __init__(self, nome, perguntas):
-        self.nome = nome            #Perfil dos advogados velhos
-        self.numero_de_usuarios = 0 #Estatisticas começam zeradas
-        self.perguntas = perguntas  #Quais perguntas os advogados velhos respondem
+    nome = models.CharField('Nome do Perfil', max_length=120, blank=False)
+    numero_de_usuarios = models.PositiveIntegerField(blank=False, default=0)
+    # perguntas = perguntas  #Quais perguntas os advogados velhos respondem
 
     @staticmethod
     def definir_perfil(usuario):
@@ -40,6 +52,3 @@ class PerfilGeral(models.Model):
 
 
 # class Resposta(models.Model):
-
-user = Usuario('guilherme', 20, 'macho', 1, 1, 1)
-print(user.perfil_especifico)
