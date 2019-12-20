@@ -27,31 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    # 'compressor.finders.CompressorFinder',
-]
-
-# COMPRESS_PRECOMPILERS = (
-#     ('text/x-scss', 'django_libsass.SassCompiler'),
-# )
-
-# COMPRESS_CSS_FILTERS = [
-#     'django_compressor_autoprefixer.AutoprefixerFilter',
-#     'compressor.filters.cssmin.CSSMinFilter',
-#     'compressor_postcss.PostCSSFilter',
-# ]
-
-# COMPRESS_POSTCSS_PLUGINS = (
-#     'autoprefixer',
-#     'postcss-font-magician'
-# )
-
-# COMPRESS_ENABLED = True
-
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,7 +54,7 @@ ROOT_URLCONF = 'site_login.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,6 +119,11 @@ USE_TZ = True
 
 STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "assets")
+]
+
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
 
