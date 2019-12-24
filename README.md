@@ -18,4 +18,5 @@
 
 ### Tecnologias usadas no Back:
 - Python:
-  - Flask;
+  - Django;
+    
