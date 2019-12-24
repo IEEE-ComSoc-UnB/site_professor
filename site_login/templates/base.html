@@ -42,14 +42,14 @@
 				<img src= "{% static 'media/pratica_de_lembrar.png' %}" alt="Pratica de lembrar" />
 		  </a>
 		  <ul>
+			<a href="/account/login">
+				<li className="login">Login</li>
+			</a>
 			<a href="/sobre-nos">
-		    <li>Quem Somos</li>
+		    	<li>Quem Somos</li>
 			</a>
 			<a href="/contato">
 				<li>Missão</li>
-			</a>
-			<a href="/account/login">
-			  <li className="login">Login</li>
 			</a>
 		  </ul>
 		  <p className="hamburguer">&#9776;</p>
@@ -59,7 +59,7 @@
 				{% if user.is_authenticated %}
 					<p class="logged-in-p">
 						Olá {{ user.username }} seja bem vindo, o que deseja fazer hoje? 
-						<span class="sair"><a href="{% url 'logout' %}">Sair</a></span>
+						<span class="sair"><a href="{% url 'account:logout' %}">Sair</a></span>
 					</p>
 				{% endif %}
         {% block content %}

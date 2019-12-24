@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+
 urlpatterns = [
-    path('', include('blog.urls')),
     path('admin/', admin.site.urls),
-    path('account/', include('django.contrib.auth.urls')),
+    path('', include('blog.urls')),
     path('account/', include('account.urls')),
 ]
 
