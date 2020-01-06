@@ -8,5 +8,5 @@ urlpatterns = [
     path('sobre-nos/', views.about, name='about'),
     path('contato/', views.contact, name='contact'),
     path('forms/', views.forms, name='forms'),
-    path('formulario/<int:formulario_id>', views.formulario, name='formulario')
+    path('formulario/<int:form_id>', views.formulario, name='formulario'),
 ]

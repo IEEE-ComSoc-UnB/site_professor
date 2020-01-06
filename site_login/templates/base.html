@@ -48,7 +48,7 @@
     <div class="row">
 				{% if user.is_authenticated %}
 					<p class="logged-in-p">
-						oOlá {{ user.username }} seja bem vindo, o que deseja fazer hoje? 
+						Olá {{ user.username }} seja bem vindo, o que deseja fazer hoje? 
 						<span class="sair"><a href="{% url 'account:logout' %}">Sair</a></span>
 					</p>
 				{% endif %}
