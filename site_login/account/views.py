@@ -5,18 +5,23 @@ from django.contrib.auth.views import LoginView,LogoutView # Views de Login e Lo
 from django.contrib.auth.decorators import login_required # Limita o acesso de uma url apenas para usuários logados
 from blog.views import home
 
+from django.contrib import messages
+
 
 def register(request):
     # Se dados forem passados via POST
     if request.user.is_authenticated:
         return redirect('/')
+
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
-        
+
         if form.is_valid(): # se o formulario for valido
+            username = form.cleaned_data.get('username') # para utilizar na flashmessage que indica que o usuário foi cadastrado
+            messages.success(request, f'Conta criada para {username}!')
             form.save() # cria um novo usuario a partir dos dados enviados
  
-            return HttpResponseRedirect("/account/login/") # redireciona para a tela de login
+            return redirect("/account/login/") # redireciona para a tela de login
         else:
             # mostra novamente o formulario de cadastro com os erros do formulario atual
             return render(request, "account/register.html", {"form": form})
