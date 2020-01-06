@@ -1,12 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect # Funcao para redirecionar o usuario
 from django.contrib.auth.forms import UserCreationForm # Formulario de criacao de usuarios
 from django.contrib.auth.views import LoginView,LogoutView # Views de Login e Logout
 from django.contrib.auth.decorators import login_required # Limita o acesso de uma url apenas para usuários logados
+from blog.views import home
 
 
 def register(request):
     # Se dados forem passados via POST
+    if request.user.is_authenticated:
+        return redirect('/')
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         
