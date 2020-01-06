@@ -40,11 +40,11 @@
 	<title>Prática de Lembrar</title>
 </head>
 <body>
-	<header>
+
 
 		{% include 'navbar.html' %}
 
-	</header>
+
     <div class="row">
 				{% if user.is_authenticated %}
 					<p class="logged-in-p">
@@ -55,8 +55,8 @@
         {% block content %}
         {% endblock %}
 	</div>
-	<div class="Footer">
-		<footer style=" padding: 10px; background-color: #343a40; color:#fff; text-align: center;">Prática de Lembrar &copy; 2020</footer>
+	<div style="background-color: #343a40; text-align: center; color:#eee; padding: 10px;">
+		<footer >Prática de Lembrar &copy; 2020</footer>
 	</div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
