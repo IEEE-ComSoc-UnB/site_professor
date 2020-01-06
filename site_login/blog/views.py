@@ -7,8 +7,8 @@ def about(request):
 def contact(request):
     return render(request, 'blog/contact.html')
 
-def index(request):
-    return render(request, 'blog/index.html')
+def home(request):
+    return render(request, 'blog/home.html')
 
 def form(request):
     return render(request, 'blog/form.html')
