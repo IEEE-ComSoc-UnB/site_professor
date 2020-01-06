@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Faça o Login {% endblock %}
+
+{% block content %}
+    <h1 class="text-center mb-3">Formularios disponíveis:</h1>
+    {% if forms_available %}
+        {% for formulario in forms_available %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <a href="{% url 'blog:formulario' formulario.id %}">{{ formulario.nome }}</a>
+                    <p class="lead">{{ formulario.descricao }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Nenhum formulário disponível</p>
+    {% endif %}
+{% endblock %}

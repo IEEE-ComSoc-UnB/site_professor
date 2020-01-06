@@ -17,9 +17,18 @@
         <li class="nav-item">
             <a class="nav-link" href="/contato">Fale conosco</a>
         </li>
+        {% if not user.is_authenticated %}
         <li class="nav-item">
           <a class="nav-link" href="/account/login">Login</a>
         </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/account/logout">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/forms">Formulários</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
 

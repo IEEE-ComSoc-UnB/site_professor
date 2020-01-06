@@ -6,7 +6,7 @@ class Usuario(models.Model):
                      ('FC',   'Ensino Fundamental Completo'),
                      ('MI',   'Ensino Medio Incompleto'),
                      ('MC',   'Ensino Medio Completo'),
-                     ('SUP',       'Ensino Superior Completo')
+                     ('SUP',  'Ensino Superior Completo')
     ]
 
 
@@ -39,7 +39,9 @@ class Formulario(models.Model):
     nome = models.CharField('Nome do formulário', max_length=120, blank=False)
     descricao = models.CharField('Descricao', max_length=120, blank=True, null=True)
     data_inicial = models.DateField('Data de Início', auto_now=False, auto_now_add=False, null=True)
-    data_inicial = models.DateField('Data de Início', auto_now=False, auto_now_add=False, null=True)
+    data_final = models.DateField('Data Final', auto_now=False, auto_now_add=False, null=True)
+    # perfis_acesso = models.
+    # perguntas_id = 
 
     def __str__(self):
         return self.nome
