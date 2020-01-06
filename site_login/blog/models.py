@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Usuario(models.Model):
 
@@ -12,6 +13,7 @@ class Usuario(models.Model):
 
     generos = [('Masc', 'Masculino'), ('Femin', 'Feminino'), ('Outro', 'Outro')]
 
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     nome = models.CharField('Nome do Usuário', max_length=120, blank=False)
     idade = models.IntegerField(blank=True, null=True)
     email = models.EmailField('Email', max_length=254, blank=True, null=True)
