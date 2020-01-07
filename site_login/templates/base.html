@@ -43,7 +43,7 @@
 <body>
 	{% include 'navbar.html' %}
 
-		<!-- Messagem indicando que o usuário foi criado -->
+		<!-- Messagem indicando que o usuário foi criado, só aparece quando o usuário acabou de se registrar -->
 		{% if messages %}
 			{% for message in messages %}
 					<div class="alert alert-{{message.tags}}">

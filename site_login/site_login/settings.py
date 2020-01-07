@@ -34,9 +34,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'compressor',
+
     'blog',
-    'account'
+    'account',
+
+    'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -127,3 +130,5 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL ='/account/login/' # url que redireciona um acesso de um usuario não autenticado a uma url que necessita autenticação
+
+CRISPY_TEMPLATE_PACK= 'bootstrap4' # ajuda com o bootstrap nos forms
