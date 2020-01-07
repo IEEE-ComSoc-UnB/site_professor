@@ -16,7 +16,7 @@ class Usuario(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     nome = models.CharField('Nome do Usuário', max_length=120, blank=False)
     idade = models.IntegerField(blank=True, null=True)
-    email = models.EmailField('Email', max_length=254, blank=True, null=True)
+    # email = models.EmailField('Email', max_length=254, blank=True, null=True)
     genero = models.CharField('Gênero', max_length=2, blank=True, choices=generos, null=True)
     escolaridade = models.CharField('Escolaridade', choices=escolaridades, max_length=3, blank=True, null=True)
     curso = models.CharField('Curso', max_length=120, blank=True, null=True)
