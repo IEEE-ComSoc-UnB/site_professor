@@ -4,3 +4,4 @@ django-compressor
 django-libsass
 django-compressor-autoprefixer
 django-compressor-postcss==0.8.2
+django-crispy-forms
