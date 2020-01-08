@@ -13,19 +13,18 @@ class Usuario(models.Model):
 
     generos = [('Masc', 'Masculino'), ('Femin', 'Feminino'), ('Outro', 'Outro')]
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    nome = models.CharField('Nome do Usuário', max_length=120, blank=False)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null = True)
+    nome = models.CharField('Nome do Usuário', max_length=120, blank=False, null=True)
     idade = models.IntegerField(blank=True, null=True)
-    # email = models.EmailField('Email', max_length=254, blank=True, null=True)
-    genero = models.CharField('Gênero', max_length=2, blank=True, choices=generos, null=True)
+    genero = models.CharField('Gênero', blank=True,max_length=15, choices=generos, null=True)
     escolaridade = models.CharField('Escolaridade', choices=escolaridades, max_length=3, blank=True, null=True)
     curso = models.CharField('Curso', max_length=120, blank=True, null=True)
     nacionalidade = models.CharField('Nacionalidade', max_length=120, blank=True, null=True)
 
     # perfil_especifico = models.ForeignKey(editable=False, default=definir_perfil(nome, idade, email, genero, escolaridade, curso, nacionalidade), max_length=120)
 
-    def __str__(self):
-        return self.nome
+    # def __str__(self):
+    #     return self.nome
 
 class PerfilGeral(models.Model):
 
