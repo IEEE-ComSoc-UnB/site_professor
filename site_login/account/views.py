@@ -4,13 +4,20 @@ from django.contrib.auth.forms import UserCreationForm # Formulario de criacao d
 from django.contrib.auth.views import LoginView,LogoutView # Views de Login e Logout
 from django.contrib.auth.decorators import login_required # Limita o acesso de uma url apenas para usuários logados
 
-from blog.models import Usuario
+from blog.models import Usuario, PerfilGeral
 from django.contrib.auth.models import User
 
 from django.contrib import messages # flashmessages
 
 from .forms import ResgistroDeUsuario, RegistroDePerfil
 
+def definir_perfil(p):
+    if p.idade < 20:
+        return 'Jovem'
+    elif p.idade <  40:
+        return 'Adulto'
+    else:
+        return 'Idoso'
 
 def register(request):
 
@@ -29,8 +36,15 @@ def register(request):
 
             u = user_form.save() # cria um novo user a partir dos dados enviados
             p = usuario_form.save() # cria um novo usuario
+
             p.user = u # liga o user recem criado ao usuario
+
+            perfil_geral = definir_perfil(p) # define qual será o perfil do usuario
+            p.perfil_especifico = PerfilGeral.objects.get(nome=perfil_geral)
             p.save()
+
+            p.perfil_especifico.numero_de_usuarios += 1
+            p.perfil_especifico.save()
 
             return redirect("/account/login/") # redireciona para a tela de login
         else:

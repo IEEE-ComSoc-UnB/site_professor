@@ -17,10 +17,21 @@ class PerguntaAdmin(admin.ModelAdmin):
 
     inlines = [AlternativaInline]
 
+class UsuarioInline(admin.TabularInline):
+    model = Usuario
+    extra = 0
+
+class PerfilGeralAdmin(admin.ModelAdmin):
+    fieldsets = [(None, {'fields': ['nome']}),
+                ('Numero de Usuarios', {'fields': ['numero_de_usuarios']}),]
+
+
+    inlines = [UsuarioInline]
+
 
 admin.site.register(Usuario)
-admin.site.register(PerfilGeral)
+admin.site.register(PerfilGeral, PerfilGeralAdmin)
 admin.site.register(Formulario)
 # admin.site.register(Resposta)
 admin.site.register(Pergunta, PerguntaAdmin)
-# admin.site.register(Alternativa)
+admin.site.register(Alternativa)
