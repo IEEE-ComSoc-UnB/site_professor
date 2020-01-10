@@ -16,7 +16,10 @@ def home(request):
 
 @login_required
 def forms(request):
-    forms_available = Formulario.objects.order_by('-data_inicial')
+    usuario_logado = request.user                                   #user logado
+    usuario_logado = usuario_logado.usuario                         #usuario logado
+    perfil = usuario_logado.perfil_especifico                       #perfil do usuario logado
+    forms_available = perfil.formularios.order_by('-data_inicial')  #formularios do perfil
     context = {'forms_available' : forms_available}
     return render(request, 'blog/forms.html', context)
 

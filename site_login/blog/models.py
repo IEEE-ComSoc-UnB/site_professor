@@ -1,10 +1,30 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Pergunta(models.Model):
+    nome = models.CharField('Nome da pergunta', max_length=120, blank=False)
+    pergunta = models.CharField('Pergunta', max_length=120, blank=False)
+
+    def __str__(self):
+        return self.nome
+
+class Formulario(models.Model):
+
+    nome = models.CharField('Nome do formulário', max_length=120, blank=False)
+    descricao = models.CharField('Descricao', max_length=120, blank=True, null=True)
+    data_inicial = models.DateField('Data de Início', auto_now=False, auto_now_add=False, null=True)
+    data_final = models.DateField('Data Final', auto_now=False, auto_now_add=False, null=True)
+    perguntas = models.ManyToManyField(Pergunta, blank=True)
+
+    def __str__(self):
+        return self.nome
+
+
 class PerfilGeral(models.Model):
 
     nome = models.CharField('Nome do Perfil', max_length=120, blank=False)
     numero_de_usuarios = models.PositiveIntegerField(blank=False, default=0)
+    formularios = models.ManyToManyField(Formulario, blank=True)
 
     def __str__(self):
         return self.nome
@@ -17,7 +37,6 @@ class Usuario(models.Model):
                      ('MC',   'Ensino Medio Completo'),
                      ('SUP',  'Ensino Superior Completo')
     ]
-
 
     generos = [('Masc', 'Masculino'), ('Femin', 'Feminino'), ('Outro', 'Outro')]
 
@@ -33,31 +52,6 @@ class Usuario(models.Model):
 
     def __str__(self):
         return self.nome
-
-
-
-class Pergunta(models.Model):
-    nome = models.CharField('Nome da pergunta', max_length=120, blank=False)
-    pergunta = models.CharField('Pergunta', max_length=120, blank=False)
-
-
-    def __str__(self):
-        return self.nome
-
-class Formulario(models.Model):
-
-    nome = models.CharField('Nome do formulário', max_length=120, blank=False)
-    descricao = models.CharField('Descricao', max_length=120, blank=True, null=True)
-    data_inicial = models.DateField('Data de Início', auto_now=False, auto_now_add=False, null=True)
-    data_final = models.DateField('Data Final', auto_now=False, auto_now_add=False, null=True)
-
-    perguntas = models.ManyToManyField(Pergunta, blank=True)
-    # perfis_acesso = models.
-    # perguntas_id = 
-
-    def __str__(self):
-        return self.nome
-
 
 class Alternativa(models.Model):
     texto = models.CharField('Texto da alternativa', max_length=120, blank=False, null=True)

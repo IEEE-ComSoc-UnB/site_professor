@@ -23,7 +23,8 @@ class UsuarioInline(admin.TabularInline):
 
 class PerfilGeralAdmin(admin.ModelAdmin):
     fieldsets = [(None, {'fields': ['nome']}),
-                ('Numero de Usuarios', {'fields': ['numero_de_usuarios']}),]
+                ('Numero de Usuarios', {'fields': ['numero_de_usuarios']}),
+                ('Formularios', {'fields' : ['formularios']}),]
 
 
     inlines = [UsuarioInline]
