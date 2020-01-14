@@ -64,10 +64,10 @@ def register(request):
         # se nenhuma informacao for passada, exibe a pagina de cadastro com o formulario
         return render(request, "account/register.html", context)
 
-
+@login_required
 def perfilForm(request):
     user_form = ResgistroDeUsuario(instance=request.user)
-    perfil_form = RegistroDePerfil(instance=request.user.Usuario)
+    perfil_form = RegistroDePerfil(instance=request.user.usuario)
     
     context = {
         'u_form': user_form,
@@ -75,3 +75,6 @@ def perfilForm(request):
     }
     return render(request, 'account/perfilForm.html', context)
 
+@login_required
+def perfilVisualizar(request):
+    return render(request, 'account/perfilVisualizar.html')

@@ -1,3 +1,4 @@
 - Adicionar escolaridade Ensino Superior Inclompleto.
 - Fazer página de visualização e outra de alteração de perfil.
     - Voltar para página de visualização depois de alterar perfil.
+- Arrumar redirecionamentos.
