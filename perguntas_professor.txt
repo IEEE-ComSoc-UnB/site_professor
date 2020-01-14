@@ -7,4 +7,4 @@ Perguntas para o Professor
 - Existe a possibilidade de se enquadrar em mais de um perfil?
 - Pode mudar de perfil
 - Analise do perfil como um todo ou analise individual do usuario
-- Como será realizada as análises das resposta? As alternativas serão dividas em grupos?
+- Como será realizada a análise das respostas? As alternativas serão dividas em grupos?
