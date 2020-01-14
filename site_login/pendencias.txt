@@ -1,4 +1,5 @@
-- É possível ir para /login estando logado.
 - Adicionar escolaridade Ensino Superior Inclompleto.
-- Fazer página de visualização e outra de alteração de perfil.
+- Fazer página de alteração de perfil.
     - Voltar para página de visualização depois de alterar perfil.
+- Arrumar redirecionamentos.
+- Tratar mensagens de erro.

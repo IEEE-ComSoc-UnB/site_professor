@@ -22,9 +22,9 @@
         <a class="nav-item nav-link" href="{% url 'account:register' %}">Registrar</a>
           <a class="nav-item nav-link" href="{% url 'account:login' %}">Entrar</a>
         {% else %}
+          <a class="nav-item nav-link" href="{% url 'account:perfilVisualizar' %}">Perfil</a>
           <a class="nav-item nav-link" href="{% url 'account:logout' %}">Sair</a>
         </div>
-
         {% endif %}
       
     </div> 
