@@ -21,10 +21,10 @@ def definir_perfil(p):
 
 def register(request):
 
-    # Se dados forem passados via POST
     if request.user.is_authenticated:
         return redirect('/')
 
+    # Se dados forem passados via POST
     if request.method == 'POST':
         user_form = ResgistroDeUsuario(request.POST)
         usuario_form = RegistroDePerfil(request.POST)
