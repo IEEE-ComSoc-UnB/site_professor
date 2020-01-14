@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 from django.contrib import messages # flashmessages
 
-from .forms import ResgistroDeUsuario, RegistroDePerfil
+from .forms import ResgistroDeUsuario, RegistroDePerfil, AtualizarUsuario, AtualizarPerfil
 
 def definir_perfil(p):
     if p.idade < 20:
@@ -66,8 +66,8 @@ def register(request):
 
 @login_required
 def perfilForm(request):
-    user_form = ResgistroDeUsuario(instance=request.user)
-    perfil_form = RegistroDePerfil(instance=request.user.usuario)
+    user_form = AtualizarUsuario(instance=request.user)
+    perfil_form = AtualizarPerfil(instance=request.user.usuario)
     
     context = {
         'u_form': user_form,

@@ -15,3 +15,13 @@ class RegistroDePerfil(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = ['nome','idade','genero','escolaridade','curso','nacionalidade']
+
+class AtualizarUsuario(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+class AtualizarPerfil(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nome','idade','genero','escolaridade','curso','nacionalidade']
