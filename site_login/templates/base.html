@@ -52,19 +52,20 @@
 			{% endfor %}
 		{% endif %}
 
-    <div class="row">
-				{% if user.is_authenticated %}
+    <div class="row" style="width: 100vw;">
+				<!-- {% if user.is_authenticated %}
 					<p class="logged-in-p">
 						Olá {{ user.username }} seja bem vindo, o que deseja fazer hoje? 
 						<span class="sair"><a href="{% url 'account:logout' %}">Sair</a></span>
 					</p>
-				{% endif %}
+				{% endif %} -->
 		
-
-        {% block content %}
-        {% endblock %}
+		<div class="container mb-3">
+        	{% block content %}
+			{% endblock %}
+		</div>
 	</div>
-	<div style="background-color: #343a40; text-align: center; color:#eee; padding: 10px;;">
+	<div style="background-color: #343a40; text-align: center; color:#eee; padding: 10px;">
 		<footer >Prática de Lembrar &copy; 2020</footer>
 	</div>
 

@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div>
+
     <div class="card mb-3">
         <div class="card-body">
             <p class="lead">{{ formulario.descricao }}</p>
@@ -15,6 +15,6 @@
     </div>
     <div><a  href="{% url 'blog:pergunta' formulario.id 0 %}">Responder formulário</a></div>
     <div><a  href="{% url 'blog:forms' %}">Voltar</a></div>
-</div>
+
 
 {% endblock %}
