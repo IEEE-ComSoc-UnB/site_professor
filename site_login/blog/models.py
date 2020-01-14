@@ -37,10 +37,8 @@ class Usuario(models.Model):
                      ('MC',   'Ensino Medio Completo'),
                      ('SUP',  'Ensino Superior Completo')
     ]
-
     generos = [('Masc', 'Masculino'), ('Femin', 'Feminino'), ('Outro', 'Outro')]
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null = True)
     nome = models.CharField('Nome do Usuário', max_length=120, blank=False, null=True)
     idade = models.IntegerField(blank=True, null=True)
     genero = models.CharField('Gênero', blank=True,max_length=15, choices=generos, null=True)
@@ -48,7 +46,11 @@ class Usuario(models.Model):
     curso = models.CharField('Curso', max_length=120, blank=True, null=True)
     nacionalidade = models.CharField('Nacionalidade', max_length=120, blank=True, null=True)
 
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null = True)
+    # formulario = models.ForeignKey(Formulario)
     perfil_especifico = models.ForeignKey(PerfilGeral, on_delete=models.DO_NOTHING, max_length=120, null=True, editable=False)
+
 
     def __str__(self):
         return self.nome
@@ -66,11 +68,13 @@ class Alternativa(models.Model):
     
 
 class Resposta(models.Model):
-    resp = models.CharField('Resposta', max_length=120, null=True) # para ajudar a debugar
-    pub_data = models.DateTimeField('Data da resposta', null = 'True', blank = False)
-    form_key = models.ForeignKey(Formulario, on_delete=models.DO_NOTHING)
-    resp_key = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
+    pub_data = models.DateField('Data da resposta', null = True, blank = True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, null = True)
+    formulario = models.ForeignKey(Formulario, on_delete=models.DO_NOTHING, null = True)
+    pergunta = models.ForeignKey(Pergunta, on_delete=models.DO_NOTHING, null=True)
+    alternativa = models.ForeignKey(Alternativa, on_delete=models.DO_NOTHING, null = True)
+
     def __str__(self):
-        return self.resp    
+        return self.usuario.nome + ': ' + self.pergunta.nome
 
 # considerar perguntas com 4 alternativas e formulários com 12 perguntas (exemplo)

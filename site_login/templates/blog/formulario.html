@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Faça o Login {% endblock %}
+{% block title %} {% endblock %}
 
 {% block content %}
 
@@ -13,7 +13,8 @@
             {% endfor %}
         </div>
     </div>
-    <div><a  href="{% url 'blog:forms' %}">Formulários</a></div>
+    <div><a  href="{% url 'blog:pergunta' formulario.id 0 %}">Responder formulário</a></div>
+    <div><a  href="{% url 'blog:forms' %}">Voltar</a></div>
 </div>
 
 {% endblock %}

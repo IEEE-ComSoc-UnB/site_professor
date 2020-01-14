@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Usuario, PerfilGeral, Formulario, Resposta, Pergunta, Alternativa
+from .models import Usuario, PerfilGeral, Formulario, Pergunta, Alternativa, Resposta
 
 admin.site.site_header = "Pratica de Lembrar"
 admin.site.site_title = "Área de Administração"
@@ -33,6 +33,6 @@ class PerfilGeralAdmin(admin.ModelAdmin):
 admin.site.register(Usuario)
 admin.site.register(PerfilGeral, PerfilGeralAdmin)
 admin.site.register(Formulario)
-# admin.site.register(Resposta)
+admin.site.register(Resposta)
 admin.site.register(Pergunta, PerguntaAdmin)
 admin.site.register(Alternativa)
