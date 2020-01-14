@@ -24,12 +24,13 @@ li {
   overflow: hidden;
 }
 /* FOOTER */
-.Footer {
-  font-size: 1.3rem;
-  text-align: center;
-  background: #241f20;
-  color: #eee;
-  padding: 25px 0;
+.footer {
+  position: fixed;
+  height: 50px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
 }
 /* HEADER */
 header {
@@ -82,7 +83,7 @@ header li:hover {
   color: #4ad893;
 }
 /* MEDIA QUERIES HEADER */
-@media screen and (max-width: 865px) {
+/* @media screen and (max-width: 865px) {
   header .hamburguer {
     display: block;
     margin: 1px;
@@ -99,7 +100,7 @@ header li:hover {
   header .grid-navbar {
     grid-template-columns: 1fr 1fr;
  }
-}
+} */
 /* PAGINA INICIAL */
 .grid-pagina-inicial {
   display: grid;
