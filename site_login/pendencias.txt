@@ -1,8 +1,5 @@
 - Adicionar escolaridade Ensino Superior Inclompleto.
-- Fazer página de alteração de perfil.
-    - Voltar para página de visualização depois de alterar perfil.
 - Arrumar redirecionamentos.
 - Tratar mensagens de erro.
 - Implementar mudança de senha e confirmação de email.
-- Entender o parâmetro action da tag form.
 - Recusar emails iguais.
