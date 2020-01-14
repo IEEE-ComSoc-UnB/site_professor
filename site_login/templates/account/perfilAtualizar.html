@@ -3,7 +3,7 @@
 {% block title %}Perfil de {{request.username}}{% endblock %}
 {% block content %}
     <div class="container">
-        <form action="." method="post">
+        <form action="/account/perfil/atualizar" method="post">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Alterar sua conta</legend>

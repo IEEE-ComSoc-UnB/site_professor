@@ -11,5 +11,5 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name="account/login.html", redirect_authenticated_user=True), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('perfil/', views.perfilVisualizar, name='perfilVisualizar'),
-    path('perfil/form', views.perfilForm, name='perfilForm')
+    path('perfil/atualizar', views.perfilAtualizar, name='perfilAtualizar')
 ]

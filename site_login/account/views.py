@@ -65,15 +65,36 @@ def register(request):
         return render(request, "account/register.html", context)
 
 @login_required
-def perfilForm(request):
-    user_form = AtualizarUsuario(instance=request.user)
-    perfil_form = AtualizarPerfil(instance=request.user.usuario)
-    
+def perfilAtualizar(request):
+    if request.method == 'POST':
+        user_form = AtualizarUsuario(request.POST, instance=request.user)
+        usuario_form = AtualizarPerfil(request.POST, instance=request.user.usuario)
+        if user_form.is_valid() and usuario_form.is_valid():
+            
+            username = user_form.cleaned_data.get('username')
+            messages.success(request, f'Conta de {username} alterada com sucesso!')
+            
+            u = user_form.save() 
+            p = usuario_form.save() 
+
+            p.user = u 
+
+            perfil_geral = definir_perfil(p) 
+            p.perfil_especifico = PerfilGeral.objects.get(nome=perfil_geral)
+            p.save()
+            p.perfil_especifico.save()
+            
+            return redirect("/account/perfil/")
+
+    else:
+        user_form = AtualizarUsuario(instance=request.user)
+        usuario_form = AtualizarPerfil(instance=request.user.usuario)
+
     context = {
         'u_form': user_form,
-        'p_form': perfil_form,
+        'p_form': usuario_form,
     }
-    return render(request, 'account/perfilForm.html', context)
+    return render(request, 'account/perfilAtualizar.html', context)
 
 @login_required
 def perfilVisualizar(request):

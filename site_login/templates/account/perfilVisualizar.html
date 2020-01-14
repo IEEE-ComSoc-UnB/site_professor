@@ -13,6 +13,6 @@
             <li class="list-group-item">Curso: {% if not request.user.usuario.curso %} <strong>Vazio</strong> {% endif %}{{request.user.usuario.curso}}</li>
             <li class="list-group-item">Nacionalidade: {% if not request.user.usuario.nacionalidade %} <strong>Vazio</strong> {% endif %}{{request.user.usuario.nacionalidade}}</li>
           </ul>
-        <p><a href="{% url 'account:perfilForm' %}">Alterar seu perfil</a></p>
+        <p><a href="{% url 'account:perfilAtualizar' %}">Alterar seu perfil</a></p>
     </div>
 {% endblock %}
