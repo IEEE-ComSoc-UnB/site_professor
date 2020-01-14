@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Perfil de {{request.username}}{% endblock %}
+{% block content %}
+    <div class="container">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Username: {% if not request.user.username %} Vazio {% endif %}{{request.user.username}}</li>
+            <li class="list-group-item">Email: {% if not request.user.usuario.email %} Vazio {% endif %} {{request.user.usuario.email}}</li>
+            <li class="list-group-item">Nome: {% if not request.user.usuario.nome %} Vazio {% endif %} {{request.user.usuario.nome}}</li>
+            <li class="list-group-item">Gênero: {% if not request.user.usuario.genero %} Vazio {% endif %}{{request.user.usuario.genero}}</li>
+            <li class="list-group-item">Escolaridade: {% if not request.user.usuario.escolaridade %} Vazio {% endif %}{{request.user.usuario.escolaridade}}</li>
+            <li class="list-group-item">Curso: {% if not request.user.usuario.curso %} Vazio {% endif %}{{request.user.usuario.curso}}</li>
+            <li class="list-group-item">Nacionalidade: {% if not request.user.usuario.nacionalidade %} Vazio {% endif %}{{request.user.usuario.nacionalidade}}</li>
+          </ul>
+        <p><a href="{% url 'account:perfilForm' %}">Alterar seu perfil</a></p>
+    </div>
+{% endblock %}
