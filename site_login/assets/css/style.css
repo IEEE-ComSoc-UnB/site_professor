@@ -159,6 +159,7 @@ header li:hover {
   color: #241f20;
   width: 45%;
   border: #4ad893 1px solid;
+  
 }
 
 .Login input:nth-child(2):hover, .Login input:nth-child(2):focus {
@@ -167,9 +168,13 @@ header li:hover {
   border: #4ad893 1px solid;
 }
 
-.Login label{
+
+/* Tirar labels do formulario padrão do django */
+form p label{
   display: none;
 }
+
+
 
 .Login button{
   margin: 10px 0;
