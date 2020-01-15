@@ -1,10 +1,17 @@
 Perguntas para o Professor
 
-- Os formulários são fixos, baseado no perfil ou baseado no usuário?
 - Quais dados serão analisados durante o preenchimento do formulario?
-- Possibilidade de interromper o formulário?
-- Passar pra gnt os perfis, os dados dos usuarios, e as perguntas para cada perfil?
-- Existe a possibilidade de se enquadrar em mais de um perfil?
-- Pode mudar de perfil
-- Analise do perfil como um todo ou analise individual do usuario
 - Como será realizada a análise das respostas? As alternativas serão dividas em grupos?
+- Possibilidade de interromper o formulário? O usuario pode sair durante o questionario e voltar depois de onde parou?
+- Passar pra gnt os perfis, os dados dos usuarios, e as perguntas para cada perfil.
+- Os formulários serão disponibilizados por períodos pré-determinados? Se sim, quantos formulários por perfil serão disponibilizados e quantos deles um usuário deverá responder nesse período?
+- O usuário irá escolher o formulário que irá responder ou isso deve ser determinado pelo sistema?
+
+- Existe a possibilidade de se enquadrar em mais de um perfil?
+- Pode mudar de perfil?
+- Os formulários são fixos, baseado no perfil ou baseado no usuário?(impossível)
+- Analise do perfil como um todo ou analise individual do usuario
+- Quantos formularios cada perfil terá?
+- Quantos formulários os usuários terão de responder?
+- Site em português ou inglês?
+- Quantas perguntas por formulário e quantas alternativas por pergunta?
