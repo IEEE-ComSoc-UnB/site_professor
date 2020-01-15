@@ -47,9 +47,10 @@ class Usuario(models.Model):
     curso = models.CharField('Curso', max_length=120, blank=True, null=True)
     nacionalidade = models.CharField('Nacionalidade', max_length=120, blank=True, null=True)
 
+    # formulários respondidos
+    formularios = models.ManyToManyField(Formulario, blank=True)
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, null = True)
-    # formulario = models.ForeignKey(Formulario)
     perfil_especifico = models.ForeignKey(PerfilGeral, on_delete=models.DO_NOTHING, max_length=120, null=True, editable=False)
 
 
@@ -79,3 +80,4 @@ class Resposta(models.Model):
         return self.usuario.nome + ': ' + self.pergunta.nome
 
 # considerar perguntas com 4 alternativas e formulários com 12 perguntas (exemplo)
+
