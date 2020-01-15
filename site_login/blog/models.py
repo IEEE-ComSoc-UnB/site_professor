@@ -35,17 +35,18 @@ class Usuario(models.Model):
                      ('FC',   'Ensino Fundamental Completo'),
                      ('MI',   'Ensino Medio Incompleto'),
                      ('MC',   'Ensino Medio Completo'),
-                     ('SUP',  'Ensino Superior Completo')
+                     ('SI',  'Ensino Superior Incompleto'),
+                     ('SC',  'Ensino Superior Completo')
     ]
     generos = [('Masc', 'Masculino'), ('Femin', 'Feminino'), ('Outro', 'Outro')]
 
     nome = models.CharField('Nome do Usuário', max_length=120, blank=False, null=True)
     email = models.EmailField('Email',blank=False,null=True,unique=True)
-    idade = models.IntegerField(blank=True, null=True)
-    genero = models.CharField('Gênero', blank=True,max_length=15, choices=generos, null=True)
-    escolaridade = models.CharField('Escolaridade', choices=escolaridades, max_length=3, blank=True, null=True)
-    curso = models.CharField('Curso', max_length=120, blank=True, null=True)
-    nacionalidade = models.CharField('Nacionalidade', max_length=120, blank=True, null=True)
+    idade = models.IntegerField(blank=False, null=True)
+    genero = models.CharField('Gênero', blank=False,max_length=15, choices=generos, null=True)
+    escolaridade = models.CharField('Escolaridade', choices=escolaridades, max_length=3, blank=False, null=True)
+    curso = models.CharField('Curso', max_length=120, blank=False, null=True)
+    nacionalidade = models.CharField('Nacionalidade', max_length=120, blank=False, null=True)
 
     # formulários respondidos
     formularios = models.ManyToManyField(Formulario, blank=True)
@@ -80,4 +81,3 @@ class Resposta(models.Model):
         return self.usuario.nome + ': ' + self.pergunta.nome
 
 # considerar perguntas com 4 alternativas e formulários com 12 perguntas (exemplo)
-
