@@ -9,7 +9,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <!-- <input  class="login" type="submit" value="Login"> -->
-            <button class="login" >Entrar</button>
+            <button class="login ml-5" >Entrar</button>
             <a href="{% url 'account:register' %}">            
                 <button type="button" class="criar_conta" >Registrar</button>
             </a>
