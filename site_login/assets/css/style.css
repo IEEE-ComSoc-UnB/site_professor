@@ -143,7 +143,7 @@ header li:hover {
  /* height: 75vh;
  */
 }
-.Login input {
+.Login input:first-child, .Login input:nth-child(2) {
   font-size: 20px;
   margin: 10px 0;
   border-radius: 35px;
@@ -155,12 +155,19 @@ header li:hover {
   outline: none;
   transition: width 250ms ease-in-out, border 250ms ease-in-out;
 }
-.Login input:hover, .Login input:focus {
+.Login input:first-child:hover, .Login input:first-child:focus {
   color: #241f20;
   width: 45%;
   border: #4ad893 1px solid;
 }
-.Login button {
+
+.Login input:nth-child(2):hover, .Login input:nth-child(2):focus {
+  color: #241f20;
+  width: 45%;
+  border: #4ad893 1px solid;
+}
+
+.Login button{
   margin: 10px 0;
   padding: 10px;
   cursor: pointer;
