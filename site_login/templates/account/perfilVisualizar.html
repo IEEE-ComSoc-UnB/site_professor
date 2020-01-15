@@ -5,7 +5,7 @@
     <div class="container">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Username: {% if not request.user.username %} <strong>Vazio</strong> {% endif %}{{request.user.username}}</li>
-            <li class="list-group-item">Email: {% if not request.user.email %} <strong>Vazio</strong> {% endif %} {{request.user.email}}</li>
+            <li class="list-group-item">Email: {% if not request.user.usuario.email %} <strong>Vazio</strong> {% endif %} {{request.user.usuario.email}}</li>
             <li class="list-group-item">Nome: {% if not request.user.usuario.nome %} <strong>Vazio</strong> {% endif %} {{request.user.usuario.nome}}</li>
             <li class="list-group-item">Idade: {% if not request.user.usuario.idade %} <strong>Vazio</strong> {% endif %}{{request.user.usuario.idade}}</li>
             <li class="list-group-item">Gênero: {% if not request.user.usuario.genero %} <strong>Vazio</strong> {% endif %}{{request.user.usuario.genero}}</li>
