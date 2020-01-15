@@ -9,19 +9,19 @@ class ResgistroDeUsuario(UserCreationForm):
     class Meta:
         # define o model com o qual esse formulário irá interagir e os seus fields
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username','password1','password2']
 
 class RegistroDePerfil(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ['nome','idade','genero','escolaridade','curso','nacionalidade']
+        fields = ['nome','email','idade','genero','escolaridade','curso','nacionalidade']
 
 class AtualizarUsuario(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username']
 
 class AtualizarPerfil(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ['nome','idade','genero','escolaridade','curso','nacionalidade']
+        fields = ['nome','email','idade','genero','escolaridade','curso','nacionalidade']

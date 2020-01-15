@@ -6,6 +6,7 @@ app_name = 'account'
 
 urlpatterns = [
     path('registrar/', views.register, name='register'),
+    path('',LoginView.as_view(template_name="account/login.html", redirect_authenticated_user=True)),
 
     # mudar a variável template_name de LoginView de registration/login.html para account/login.html
     path('login/', LoginView.as_view(template_name="account/login.html", redirect_authenticated_user=True), name='login'),
