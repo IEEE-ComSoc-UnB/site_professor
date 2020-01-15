@@ -167,6 +167,10 @@ header li:hover {
   border: #4ad893 1px solid;
 }
 
+.Login label{
+  display: none;
+}
+
 .Login button{
   margin: 10px 0;
   padding: 10px;
