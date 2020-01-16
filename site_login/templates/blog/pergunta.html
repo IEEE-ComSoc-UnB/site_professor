@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<h1 class="text=-center mb-3">{{ pergunta.pergunta }}</h1>
+<h1 class="text=-center mb-3 mt-4">{{ pergunta.pergunta }}</h1>
 
 {% if error_message %}
 <p class="alert alert-danger" style="display:inline-block; max-height: 50px;">
@@ -27,6 +27,11 @@
         <label for="alternativa{{ forloop.counter }}">{{ alt.texto}}</label>
     </div>
     {% endfor %}
-    <input type="submit" value="Responder" class="btn btn-succes btn-lg btn-block mt-4"/>
+    <input type="submit" value="Responder" class="btn btn-primary btn-lg  mt-4 mb-4"/>
 </form>
+{% if pergunta_num == 0 %}
+    <a href="{% url 'blog:formulario' formulario.id %}" class="btn btn-secondary">Voltar</a>
+
+{% endif %}
+
 {% endblock %}

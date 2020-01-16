@@ -5,15 +5,18 @@
 {% block content %}
     <h1 class="text-center mb-3">Formularios disponíveis:</h1>
     {% if forms_available %}
-
-    {% for formulario in forms_available %}
+        {% for formulario in forms_available %}
+            {% if formulario in user.usuario.formularios.all %}
+            <!-- Não mosyra o formulário -->
+            {% else %}
             <div class="card mb-3 text-center">
                 <div class="card-body">
                     <a href="{% url 'blog:formulario' formulario.id %}">{{ formulario.nome }}</a>
                     <p class="lead">{{ formulario.descricao }}</p>
                 </div>
             </div>
-            {% endfor %}
+            {% endif %}
+        {% endfor %}
  
     {% else %}
         <p>Nenhum formulário disponível</p>

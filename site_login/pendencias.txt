@@ -6,3 +6,7 @@
 - Traduzir endpoints (account, login, etc).
 - permitir entrar com email
 - arrumar campo de nacionalidade, curso, idade e email(melhorar validação)
+- criar decorador is_not_authenticated
+- criar permissões
+- permitir voltar as perguntas
+- resolver problema do superuser sem usuario
