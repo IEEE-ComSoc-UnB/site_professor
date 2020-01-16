@@ -1,12 +1,15 @@
 # GitHub do site do professor Cadu, de psicologia
 
 ### Equipe do Front-end:
-- Gobbi.
+- Gobbi;
+- Murilo;
+- Mateus;
+- Rômulo.
 
 ### Equipe do Back-end:
 - Kfouri;
-- Fiuza;
-- Carlos.
+- Marcos;
+- Pedro.
 
 ### Tecnologias usadas no front:
 - HTML, CSS e JS;
