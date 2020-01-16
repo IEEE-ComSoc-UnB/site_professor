@@ -38,7 +38,3 @@ Para rodar o server
 ```shell
   python manage.py runserver
 ```
-Caso seja realizada alguma mudança nas models, crie as migrações antes de sincronizar o banco de dados
-```shell
-   python manage.py makemigrations
-```
