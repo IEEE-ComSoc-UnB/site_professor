@@ -1,15 +1,26 @@
 {% load staticfiles %}
 
 <header>
-  <div class="container grid-navbar"; style="vertical-align: auto;">
-    <a href="/" class="logo">
+  <div class="cont grid-nav">
+    <ul>
+    <a href="/" class="logo" ">
       <img src= "{% static 'media/pratica_de_lembrar.png' %}" width="81" height="50" alt="Prática de Lembrar">
     </a>
+    <a class="link-navbar" href="{% url 'blog:about' %"><li>Quem somos</li></a>
+    <a class="link-navbar" href="{% url 'blog:contact' %}"><li>Fale conosco</li></a>
+    {% if user.is_authenticated %}
+    
+    {% endif %}
+    </ul>
     <ul>
-      <a style="text-decoration: none;" href="{% url 'blog:contact' %}"><li> Quem Somos</li></a>
-      <a style="text-decoration: none;" href="{% url 'blog:about' %}"><li>Missão</li></a>
-      
-      <li class="login">Login</li>
+      {% if not user.is_authenticated %}
+      <a class="link-navbar" href="{% url 'blog:register' %}"><li>Registrar</li></a>      
+      <a class="link-navbar" href="{% url 'account:login' %}"><li class="login">Login</li></a>
+      {% else %}
+      <a class="link-navbar" href="{% url 'blog:forms' %}"><li>Formulários</li></a>
+      <a class="link-navbar" href="{% url 'account:perfilVisualizar' %}"><li>Perfil de {{user.username}}</li></a>
+      <a class="link-navbar" href="{% url 'account:logout' %}"><li>Sair</li></a>
+      {% endif %}
     </ul>
     <p class="hamburguer">&#9776;</p>
   </div>
