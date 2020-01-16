@@ -10,3 +10,5 @@
 - criar permissões
 - permitir voltar as perguntas
 - resolver problema do superuser sem usuario
+- Pedir confirmação se quer sair.
+- Setar unique=True para atributos usados em busca
