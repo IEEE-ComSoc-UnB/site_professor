@@ -16,7 +16,7 @@
 <form action="{% url 'blog:resposta' formulario.id pergunta_num %}" method="POST" >
     {% csrf_token %}
     {% for alt in pergunta.alternativa_set.all %}
-    <div class="form-check">
+    <div class="form-check" style="text-align: center; width:1000px; height:30px; background-color: gray; color: white;"> 
         <input 
         type="radio"
         name="alternativa"
@@ -24,7 +24,7 @@
         id="alternativa{{ forloop.counter }}"
         value="{{ alt.id }}"
         />
-        <label for="alternativa{{ forloop.counter }}">{{ alt.texto}}</label>
+        <label for="alternativa{{ forloop.counter }}">{{alt.texto}}</label>
     </div>
     {% endfor %}
     <input type="submit" value="Responder" class="btn btn-primary btn-lg  mt-4 mb-4"/>

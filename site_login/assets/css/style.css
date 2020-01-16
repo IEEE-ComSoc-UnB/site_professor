@@ -22,7 +22,7 @@ a {
 li {
   list-style-type: none;
 }
-.container {
+.cont {
   width: 80%;
   margin: auto;
   overflow: hidden;
@@ -34,7 +34,7 @@ li {
   width: 100%;
   height: 50px;   
 
-  background-color: #343a40;
+  background-color: #241f20;
   text-align: center;
   color:#eee;
   padding: 10px;
@@ -62,9 +62,9 @@ header .login:hover {
   background-color: #93feca;
   color: #241f20;
 }
-header .grid-navbar {
+header .grid-nav {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 1fr;
 }
 header .logo {
   align-self: center;
@@ -89,6 +89,12 @@ header li {
 header li:hover {
   color: #4ad893;
 }
+
+header a{
+  margin: 0;
+  text-decoration: none;
+}
+
 /* MEDIA QUERIES HEADER */
 @media screen and (max-width: 865px) {
   header .hamburguer {
@@ -104,7 +110,7 @@ header li:hover {
     align-self: center;
     justify-self: left;
  }
-  header .grid-navbar {
+  header .grid-nav {
     grid-template-columns: 1fr 1fr;
  }
 } 

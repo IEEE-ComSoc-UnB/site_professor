@@ -22,13 +22,13 @@ def forms(request):
     perfil = usuario_logado.perfil_especifico                       #perfil do usuario logado
     forms_available = perfil.formularios.order_by('-data_inicial')  #formularios do perfil
     
-    if len(forms_available) == len(perfil.formularios.all()):
+    # if len(forms_available) == len(perfil.formularios.all()):
         
-        # pag_anterior = request.META.HTTP_REFERER
-        # context = {
-        #     'pag_anterior': pag_anterior
-        # }
-        return render(request, 'blog/forms_respondidos.html', {})
+    #     # pag_anterior = request.META.HTTP_REFERER
+    #     # context = {
+    #     #     'pag_anterior': pag_anterior
+    #     # }
+    #     return render(request, 'blog/forms_respondidos.html', {})
 
     context = {'forms_available' : forms_available}
     return render(request, 'blog/forms.html', context)
@@ -47,6 +47,10 @@ def formulario(request, form_id):
 def pergunta(request, form_id, pergunta_num):
 
     formulario = Formulario.objects.get(pk=form_id)
+    if pergunta_num == len(formulario.perguntas.all()):
+        request.user.usuario.formularios.add(formulario)
+        return redirect('/')     #tela de formulario terminado 
+
 
     try:
         pergunta = formulario.perguntas.all()[pergunta_num]
@@ -55,10 +59,11 @@ def pergunta(request, form_id, pergunta_num):
             'pergunta': pergunta,
             'pergunta_num': pergunta_num
         }
-    except:
-        # formulario respondido
-        request.user.usuario.formularios.add(formulario)
-        return redirect('/')
+    except IndexError:
+        # pergunta fora do formulario
+        return redirect('/error')
+ 
+        
     return render(request, 'blog/pergunta.html', context)
 
 @login_required
