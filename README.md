@@ -22,15 +22,15 @@
     
 ### Ao clonar o repositório:
 Instale as dependências do python3, rode essas linhas de código na pasta site_professor/site_login/
-'''shell 
+```shell 
   pip install -r requirements.txt
-'''
+```
 Sincronize o banco de dados
-'''shell
+```shell
   python manage.py makemigrations
   python manage.py migrate
-'''
+```
 Para rodar o server
-'''shell
+```shell
   python manage.py runserver
-'''
+```
