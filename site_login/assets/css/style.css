@@ -90,7 +90,7 @@ header li:hover {
   color: #4ad893;
 }
 /* MEDIA QUERIES HEADER */
-/* @media screen and (max-width: 865px) {
+@media screen and (max-width: 865px) {
   header .hamburguer {
     display: block;
     margin: 1px;
@@ -107,7 +107,7 @@ header li:hover {
   header .grid-navbar {
     grid-template-columns: 1fr 1fr;
  }
-} */
+} 
 /* PAGINA INICIAL */
 .grid-pagina-inicial {
   display: grid;
@@ -140,10 +140,11 @@ header li:hover {
   animation-duration: 700ms;
   transition-timing-function: ease;
   text-align: center;
+  margin-top:10vh;
  /* height: 75vh;
  */
 }
-.Login input:first-child, .Login input:nth-child(2) {
+.Login input{
   font-size: 20px;
   margin: 10px 0;
   border-radius: 35px;
@@ -151,21 +152,15 @@ header li:hover {
   padding: 10px;
   border: #241f20 1px solid;
   text-align: center;
-  width: 35%;
+  width: 45%;
   outline: none;
   transition: width 250ms ease-in-out, border 250ms ease-in-out;
 }
-.Login input:first-child:hover, .Login input:first-child:focus {
+.Login input:hover, .Login input:focus {
   color: #241f20;
-  width: 45%;
+  width: 55%;
   border: #4ad893 1px solid;
   
-}
-
-.Login input:nth-child(2):hover, .Login input:nth-child(2):focus {
-  color: #241f20;
-  width: 45%;
-  border: #4ad893 1px solid;
 }
 
 
@@ -189,7 +184,7 @@ form p label{
 .Login .login {
   color: #241f20;
   background-color: #4ad893;
-  width: 15%;
+  width: 20%;
   transition: 300ms background-color ease-in-out;
   margin-right: 20px;
 }
@@ -199,7 +194,7 @@ form p label{
 .Login .criar_conta {
   color: #eee;
   background-color: #241f20;
-  width: 15%;
+  width: 20%;
   transition: 300ms background-color ease-in-out;
   margin-left: 20px;
 }
