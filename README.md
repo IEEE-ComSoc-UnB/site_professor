@@ -25,7 +25,7 @@
   - Django 3.0.2;
     
 ### Ao clonar o repositório:
-Instale as dependências do python3, rode essas linhas de código na pasta site_professor/site_login/
+##Instale as dependências do python3, rode essas linhas de código na pasta site_professor/site_login/
 ```shell 
   pip install -r requirements.txt
 ```
