@@ -1,14 +1,20 @@
-- Adicionar escolaridade Ensino Superior Inclompleto.
+PRECISA:
 - Arrumar redirecionamentos.
 - Tratar mensagens de erro.
-- Implementar mudança de senha e confirmação de email.
-- Entender o parâmetro action da tag form.
 - Traduzir endpoints (account, login, etc).
-- permitir entrar com email
+- Setar unique=True para atributos usados em busca
+- Entender o parâmetro action da tag form.
 - arrumar campo de nacionalidade, curso, idade e email(melhorar validação)
 - criar decorador is_not_authenticated
 - criar permissões
 - permitir voltar as perguntas
 - resolver problema do superuser sem usuario
 - Pedir confirmação se quer sair.
-- Setar unique=True para atributos usados em busca
+
+PERGUNTAR SE PRECISA:
+- Implementar mudança de senha
+- Implementar mudança de senha e confirmação de email.
+
+DESNESCESSÁRIO:
+- Implementar mudança de senha por meio do email
+- Permitir entrar com email
