@@ -2,4 +2,7 @@
 - Arrumar redirecionamentos.
 - Tratar mensagens de erro.
 - Implementar mudança de senha e confirmação de email.
-- Recusar emails iguais.
+- Entender o parâmetro action da tag form.
+- Traduzir endpoints (account, login, etc).
+- permitir entrar com email
+- arrumar campo de nacionalidade, curso, idade e email(melhorar validação)
