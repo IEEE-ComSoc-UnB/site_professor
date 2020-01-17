@@ -4,14 +4,19 @@
 
 {% block content %}
     <h1 class="text-center mb-3">Formularios disponíveis:</h1>
-    {% if forms_available %}
-        {% for formulario in forms_available %}
+    {% if forms_disponiveis %}
+        {% for formulario in forms_disponiveis %}
+
+            {% if formulario in forms_respondidos %}
+            {% else %}
+
             <div class="card mb-3 text-center">
                 <div class="card-body">
                     <a href="{% url 'blog:formulario' formulario.id %}">{{ formulario.nome }}</a>
                     <p class="lead">{{ formulario.descricao }}</p>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
  
     {% else %}

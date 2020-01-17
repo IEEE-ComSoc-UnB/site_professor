@@ -20,17 +20,22 @@ def forms(request):
     usuario_logado = request.user                                   #user logado
     usuario_logado = usuario_logado.usuario                         #usuario logado
     perfil = usuario_logado.perfil_especifico                       #perfil do usuario logado
-    forms_available = perfil.formularios.order_by('-data_inicial')  #formularios do perfil
-    
-    # if len(forms_available) == len(perfil.formularios.all()):
-        
-    #     # pag_anterior = request.META.HTTP_REFERER
-    #     # context = {
-    #     #     'pag_anterior': pag_anterior
-    #     # }
-    #     return render(request, 'blog/forms_respondidos.html', {})
+    forms_disponiveis = perfil.formularios.order_by('-data_inicial')  #formularios do perfil
+    forms_respondidos = usuario_logado.formularios.all()
 
-    context = {'forms_available' : forms_available}
+    # se todos os formulários foram respondidos
+    if len(forms_disponiveis) == len(forms_respondidos):
+        
+        # pag_anterior = request.META.HTTP_REFERER
+        # context = {
+        #     'pag_anterior': pag_anterior
+        # }
+        return render(request, 'blog/forms_respondidos.html', {})
+
+    context = {
+    'forms_disponiveis' : forms_disponiveis,
+    'forms_respondidos' : forms_respondidos
+    }
     return render(request, 'blog/forms.html', context)
 
 
