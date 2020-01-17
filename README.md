@@ -1,6 +1,7 @@
 # GitHub do site do professor Cadu, de psicologia
 
 ### Equipe do Front-end:
+- Pedro;
 - Gobbi;
 - Murilo;
 - Mateus;
