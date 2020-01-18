@@ -31,6 +31,9 @@ def forms(request):
         #     'pag_anterior': pag_anterior
         # }
         return render(request, 'blog/forms_respondidos.html', {})
+    elif len(forms_disponiveis) < len(forms_respondidos):
+        return HttpResponse('<h1 style="color:red">ERRO: Mais formulários respondidos do que disponíveis<h1>')
+
 
     context = {
     'forms_disponiveis' : forms_disponiveis,
@@ -54,7 +57,7 @@ def pergunta(request, form_id, pergunta_num):
     formulario = Formulario.objects.get(pk=form_id)
     if pergunta_num == len(formulario.perguntas.all()):
         request.user.usuario.formularios.add(formulario)
-        return redirect('/')     #tela de formulario terminado 
+        return redirect('/formulario')   #tela de formulario terminado 
 
 
     try:
@@ -97,3 +100,11 @@ def resposta(request, form_id, pergunta_num):
     return redirect(url)
 
 
+def formConcluido(request):
+    
+    forms_respondidos = len(request.user.usuario.formularios.all())
+    
+    context = {
+        'forms_repondidos': forms_respondidos
+    }
+    return render(request, 'blog/form_concluido.html', context)

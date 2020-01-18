@@ -3,11 +3,10 @@ PRECISA:
 - Tratar mensagens de erro.
 - Traduzir endpoints (account, login, etc).
 - Setar unique=True para atributos usados em busca
-- Entender o parâmetro action da tag form.
 - arrumar campo de nacionalidade, curso, idade e email(melhorar validação)
 - criar decorador is_not_authenticated
 - criar permissões
-- permitir voltar as perguntas
+- permitir voltar as perguntas 
 - resolver problema do superuser sem usuario
 - Pedir confirmação se quer sair.
 
