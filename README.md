@@ -5,7 +5,8 @@
 - Gobbi;
 - Murilo;
 - Mateus;
-- Rômulo.
+- Rômulo;
+- Carlos.
 
 ### Equipe do Back-end:
 - Kfouri;
