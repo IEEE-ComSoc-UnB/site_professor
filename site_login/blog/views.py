@@ -74,6 +74,27 @@ def pergunta(request, form_id, pergunta_num):
         
     return render(request, 'blog/pergunta.html', context)
 
+
+@login_required
+def voltar(request, form_id, pergunta_num):
+
+    formulario = Formulario.objects.get(pk=form_id)
+    pergunta_num -= 1
+    try:
+        pergunta = formulario.perguntas.all()[pergunta_num]
+        context = {
+            'formulario': formulario,
+            'pergunta': pergunta,
+            'pergunta_num': pergunta_num
+        }
+    except IndexError:
+        # pergunta fora do formulario
+        return redirect('/error')
+ 
+        
+    return render(request, 'blog/pergunta.html', context)
+
+
 @login_required
 def resposta(request, form_id, pergunta_num):
 
@@ -108,3 +129,4 @@ def formConcluido(request):
         'forms_repondidos': forms_respondidos
     }
     return render(request, 'blog/form_concluido.html', context)
+

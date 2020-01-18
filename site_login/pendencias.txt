@@ -1,4 +1,8 @@
 PRECISA:
+- Possiblitar sair do formulario e voltar depois.
+- Guardar alternativas escolhidas por um usuario.
+- Criar apenas uma resposta para cada pergunta.
+- Validar resposta do formulario apenas quando este acabar.
 - Arrumar redirecionamentos.
 - Tratar mensagens de erro.
 - Traduzir endpoints (account, login, etc).

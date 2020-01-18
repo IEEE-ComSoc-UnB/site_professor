@@ -30,7 +30,10 @@
 </form>
 {% if pergunta_num == 0 %}
     <a href="{% url 'blog:formulario' formulario.id %}" class="btn btn-secondary">Voltar</a>
-
+    
+    {% else %}
+    <a href="{% url 'blog:voltar' formulario.id pergunta_num %}" class="btn btn-secondary">Voltar</a>
+    
 {% endif %}
 
 {% endblock %}
