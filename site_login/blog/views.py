@@ -66,8 +66,7 @@ def pergunta(request, form_id, pergunta_num):
         context = {
             'formulario': formulario,
             'pergunta': pergunta,
-            'pergunta_num': pergunta_num,
-            'pergunta_anterior': pergunta_anterior
+            'pergunta_num': pergunta_num
         }
     except IndexError:
         # pergunta fora do formulario
