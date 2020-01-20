@@ -30,10 +30,15 @@ def forms(request):
     elif len(forms_disponiveis) < len(forms_respondidos):
         return HttpResponse('<h1 style="color:red">ERRO: Mais formulários respondidos do que disponíveis<h1>')
 
+    if usuario_logado.form_atual:
+        ultima_perg = len(usuario_logado.alternativas.all())
+    else:
+        ultima_perg = None
 
     context = {
     'forms_disponiveis' : forms_disponiveis,
-    'forms_respondidos' : forms_respondidos
+    'forms_respondidos' : forms_respondidos,
+    'ultima_perg' : ultima_perg
     }
     return render(request, 'blog/forms.html', context)
 
@@ -51,17 +56,21 @@ def formulario(request, form_id):
 def pergunta(request, form_id, pergunta_num):
 
     
-    
-    # Usuario entrando no formulário pela primeira vez
-    if not request.user.usuario.form_atual and pergunta_num == 0:
-        request.user.usuario.form_atual = Formulario.objects.get(pk=form_id)
-
     formulario = Formulario.objects.get(pk=form_id)
+    usuario = request.user.usuario
+    # Usuario entrando no formulário pela primeira vez
+    if not usuario.form_atual and pergunta_num == 0:
+        print(formulario)
+        usuario.form_atual = formulario
+        usuario.save()
 
     # terminou formulario
-    if pergunta_num == len(formulario.perguntas.all()):        
-        request.user.usuario.formularios.add(formulario)
-        request.user.usuario.form_atual.remove(formulario)
+    if pergunta_num == len(formulario.perguntas.all()):
+        for alt in usuario.alternativas.all():
+            usuario.alternativas.remove(alt)
+        usuario.formularios.add(formulario)
+        usuario.form_atual = None
+        usuario.save()
         return redirect('/formulario')   #tela de formulario terminado 
 
 

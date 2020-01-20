@@ -1,16 +1,17 @@
 PRECISA:
-- Possiblitar sair do formulario e voltar depois.
-- Guardar alternativas escolhidas por um usuario.
-- Criar apenas uma resposta para cada pergunta.
+- Possiblitar sair do formulario e voltar depois. 'ok'
+- Guardar alternativas escolhidas por um usuario. 'ok'
+- Criar apenas uma resposta para cada pergunta. 'ok'
 - Arrumar redirecionamentos.
 - Tratar mensagens de erro.
 - Traduzir endpoints (account, login, etc).
 - Setar unique=True para atributos usados em busca
 - arrumar campo de nacionalidade, curso, idade e email(melhorar validação)
 - criar permissões
-- permitir voltar as perguntas 
+- permitir voltar as perguntas 'ok'
 - resolver problema do superuser sem usuario
 - Pedir confirmação se quer sair.
+- Fazer controle de sessão.
 
 PERGUNTAR SE PRECISA:
 - Validar resposta do formulario apenas quando este acabar.
