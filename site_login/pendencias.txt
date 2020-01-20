@@ -2,21 +2,20 @@ PRECISA:
 - Possiblitar sair do formulario e voltar depois.
 - Guardar alternativas escolhidas por um usuario.
 - Criar apenas uma resposta para cada pergunta.
-- Validar resposta do formulario apenas quando este acabar.
 - Arrumar redirecionamentos.
 - Tratar mensagens de erro.
 - Traduzir endpoints (account, login, etc).
 - Setar unique=True para atributos usados em busca
 - arrumar campo de nacionalidade, curso, idade e email(melhorar validação)
-- criar decorador is_not_authenticated
 - criar permissões
 - permitir voltar as perguntas 
 - resolver problema do superuser sem usuario
 - Pedir confirmação se quer sair.
 
 PERGUNTAR SE PRECISA:
+- Validar resposta do formulario apenas quando este acabar.
 - Implementar mudança de senha
-- Implementar mudança de senha e confirmação de email.
+- Implementar confirmação de email.
 
 DESNESCESSÁRIO:
 - Implementar mudança de senha por meio do email

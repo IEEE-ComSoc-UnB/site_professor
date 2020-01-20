@@ -11,6 +11,8 @@ from django.contrib import messages # flashmessages
 
 from .forms import ResgistroDeUsuario, RegistroDePerfil, AtualizarUsuario, AtualizarPerfil
 
+from site_login.custom_decorators import logout_required
+
 def definir_perfil(p):
     if p.idade < 20:
         return 'Jovem'
@@ -19,10 +21,11 @@ def definir_perfil(p):
     else:
         return 'Idoso'
 
+@logout_required
 def register(request):
 
-    if request.user.is_authenticated:
-        return redirect('/')
+    # if request.user.is_authenticated:
+    #     return redirect('/')
 
     # Se dados forem passados via POST
     if request.method == 'POST':
