@@ -25,12 +25,8 @@ def forms(request):
 
     # se todos os formulários foram respondidos
     if len(forms_disponiveis) == len(forms_respondidos):
-        
-        # pag_anterior = request.META.HTTP_REFERER
-        # context = {
-        #     'pag_anterior': pag_anterior
-        # }
         return render(request, 'blog/forms_respondidos.html', {})
+
     elif len(forms_disponiveis) < len(forms_respondidos):
         return HttpResponse('<h1 style="color:red">ERRO: Mais formulários respondidos do que disponíveis<h1>')
 
@@ -53,14 +49,19 @@ def formulario(request, form_id):
 
 @login_required
 def pergunta(request, form_id, pergunta_num):
+
+    
     
     # Usuario entrando no formulário pela primeira vez
     if not request.user.usuario.form_atual and pergunta_num == 0:
         request.user.usuario.form_atual = Formulario.objects.get(pk=form_id)
 
     formulario = Formulario.objects.get(pk=form_id)
-    if pergunta_num == len(formulario.perguntas.all()):
+
+    # terminou formulario
+    if pergunta_num == len(formulario.perguntas.all()):        
         request.user.usuario.formularios.add(formulario)
+        request.user.usuario.form_atual.remove(formulario)
         return redirect('/formulario')   #tela de formulario terminado 
 
 
@@ -109,11 +110,16 @@ def resposta(request, form_id, pergunta_num):
         for alt in pergunta.alternativa_set.all():
             if alt in usuario.alternativas.all():
                 usuario.alternativas.remove(alt)
-                break
 
+                # apagar resposta antiga
+                # encontra a resposta pela alternativa escolhida,
+                #já que cada alternativa possui apenas uma pergunta
+                usuario.resposta_set.filter(alternativa=alt)[0].delete()
+                break
+    
     usuario.alternativas.add(alternativa)
 
-    # Resposta.objects.create(pub_data=pub_data, usuario=usuario, formulario=formulario, pergunta=pergunta, alternativa=alternativa)
+    Resposta.objects.create(pub_data=pub_data, usuario=usuario, formulario=formulario, pergunta=pergunta, alternativa=alternativa)
     pergunta_num += 1
     url = '/formulario/' + str(form_id) +'/pergunta/' + str(pergunta_num)
     return redirect(url)
