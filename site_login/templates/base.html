@@ -63,9 +63,17 @@
 		<div class="container mb-3" style="padding-bottom: 50px;">
         	{% block content %}
 			{% endblock %}
+			
 		</div>
 	</div>
-
+    <div class="container" style="border-radius: 10px; background-color: #eee; box-shadow: 10px; box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.842); max-width: 500px;;">
+    <!-- <div class="container" style="border-radius: 10px; border:2px black solid;"> -->
+        <div class="row">
+            <div class="col-md-10 m-auto" style>
+                {% block formulario %} {% endblock %}
+            </div>
+        </div>
+    </div>
 
 	<div class="footer">
 		<footer >Prática de Lembrar &copy; 2020</footer>

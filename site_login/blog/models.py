@@ -29,6 +29,18 @@ class PerfilGeral(models.Model):
     def __str__(self):
         return self.nome
 
+class Alternativa(models.Model):
+    texto = models.CharField('Texto da alternativa', max_length=120, blank=False, null=True)
+    
+    # cada alternativa está ligada a apenas uma pergunta
+    pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE)
+
+    # Dados: quantas vezes escolhida, tempo médio de tempo de respota, etc...
+
+    def __str__(self):
+        return self.texto
+
+
 class Usuario(models.Model):
 
     escolaridades = [('FI',   'Ensino Fundamental Incompleto'),
@@ -53,6 +65,10 @@ class Usuario(models.Model):
 
     # formulário que está sendo respondio
     form_atual = models.ForeignKey(Formulario, blank=True, null=True, on_delete=models.CASCADE, related_name='form_atual')
+    
+    # set de alternativas para o formulario que está sendo respondido, só dará certo se cada alternativa pertencer a apenas uma pergunta,
+    # pois assim será possivel encontra a pergunta a partir da alternativa
+    alternativas = models.ManyToManyField(Alternativa, blank=True)
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, null = True)
     perfil_especifico = models.ForeignKey(PerfilGeral, on_delete=models.DO_NOTHING, max_length=120, null=True, editable=False)
@@ -61,16 +77,6 @@ class Usuario(models.Model):
     def __str__(self):
         return self.nome
 
-class Alternativa(models.Model):
-    texto = models.CharField('Texto da alternativa', max_length=120, blank=False, null=True)
-    
-    # cada alternativa está ligada a apenas uma pergunta
-    pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE)
-
-    # Dados: quantas vezes escolhida, tempo médio de tempo de respota, etc...
-
-    def __str__(self):
-        return self.texto
     
 
 class Resposta(models.Model):

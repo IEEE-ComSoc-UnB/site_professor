@@ -53,6 +53,10 @@ def formulario(request, form_id):
 
 @login_required
 def pergunta(request, form_id, pergunta_num):
+    
+    # Usuario entrando no formulário pela primeira vez
+    if not request.user.usuario.form_atual and pergunta_num == 0:
+        request.user.usuario.form_atual = Formulario.objects.get(pk=form_id)
 
     formulario = Formulario.objects.get(pk=form_id)
     if pergunta_num == len(formulario.perguntas.all()):
@@ -66,7 +70,8 @@ def pergunta(request, form_id, pergunta_num):
         context = {
             'formulario': formulario,
             'pergunta': pergunta,
-            'pergunta_num': pergunta_num
+            'pergunta_num': pergunta_num,
+            'num_de_perguntas': len(formulario.perguntas.all())
         }
     except IndexError:
         # pergunta fora do formulario
@@ -98,7 +103,17 @@ def resposta(request, form_id, pergunta_num):
         })
     alternativa = Alternativa.objects.get(pk=alternativa_id)
 
-    Resposta.objects.create(pub_data=pub_data, usuario=usuario, formulario=formulario, pergunta=pergunta, alternativa=alternativa)
+    # se o usuario responder uma pergunta ja respondida, essa resposta deve ser atualizada
+    perguntas_respondidas = [alt.pergunta for alt in usuario.alternativas.all()]
+    if pergunta in perguntas_respondidas:
+        for alt in pergunta.alternativa_set.all():
+            if alt in usuario.alternativas.all():
+                usuario.alternativas.remove(alt)
+                break
+
+    usuario.alternativas.add(alternativa)
+
+    # Resposta.objects.create(pub_data=pub_data, usuario=usuario, formulario=formulario, pergunta=pergunta, alternativa=alternativa)
     pergunta_num += 1
     url = '/formulario/' + str(form_id) +'/pergunta/' + str(pergunta_num)
     return redirect(url)
