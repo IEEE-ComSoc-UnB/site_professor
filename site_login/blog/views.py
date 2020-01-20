@@ -61,11 +61,13 @@ def pergunta(request, form_id, pergunta_num):
 
 
     try:
+        pergunta_anterior = pergunta_num -1
         pergunta = formulario.perguntas.all()[pergunta_num]
         context = {
             'formulario': formulario,
             'pergunta': pergunta,
-            'pergunta_num': pergunta_num
+            'pergunta_num': pergunta_num,
+            'pergunta_anterior': pergunta_anterior
         }
     except IndexError:
         # pergunta fora do formulario
@@ -75,24 +77,6 @@ def pergunta(request, form_id, pergunta_num):
     return render(request, 'blog/pergunta.html', context)
 
 
-@login_required
-def voltar(request, form_id, pergunta_num):
-
-    formulario = Formulario.objects.get(pk=form_id)
-    pergunta_num -= 1
-    try:
-        pergunta = formulario.perguntas.all()[pergunta_num]
-        context = {
-            'formulario': formulario,
-            'pergunta': pergunta,
-            'pergunta_num': pergunta_num
-        }
-    except IndexError:
-        # pergunta fora do formulario
-        return redirect('/error')
- 
-        
-    return render(request, 'blog/pergunta.html', context)
 
 
 @login_required

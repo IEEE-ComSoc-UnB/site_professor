@@ -32,7 +32,7 @@
     <a href="{% url 'blog:formulario' formulario.id %}" class="btn btn-secondary">Voltar</a>
     
     {% else %}
-    <a href="{% url 'blog:voltar' formulario.id pergunta_num %}" class="btn btn-secondary">Voltar</a>
+    <a href="{% url 'blog:pergunta' formulario.id pergunta_num|add:'-1' %}" class="btn btn-secondary">Voltar</a>
     
 {% endif %}
 

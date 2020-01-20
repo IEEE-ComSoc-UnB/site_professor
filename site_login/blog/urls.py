@@ -11,7 +11,6 @@ urlpatterns = [
     path('formulario/<int:form_id>', views.formulario, name='formulario'),
     path('formulario/<int:form_id>/pergunta/<int:pergunta_num>', views.pergunta, name='pergunta'),
     path('formulario/<int:form_id>/pergunta/<int:pergunta_num>/resposta', views.resposta, name='resposta'),
-    path('formulario/<int:form_id>/pergunta/<int:pergunta_num>/voltar', views.voltar, name='voltar'),
     path('formulario/', views.formConcluido, name='formConcluido'),
     
 ]

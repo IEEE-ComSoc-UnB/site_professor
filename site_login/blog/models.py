@@ -51,6 +51,9 @@ class Usuario(models.Model):
     # formulários respondidos
     formularios = models.ManyToManyField(Formulario, blank=True)
 
+    # formulário que está sendo respondio
+    form_atual = models.ForeignKey(Formulario, blank=True, null=True, on_delete=models.CASCADE, related_name='form_atual')
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, null = True)
     perfil_especifico = models.ForeignKey(PerfilGeral, on_delete=models.DO_NOTHING, max_length=120, null=True, editable=False)
 
