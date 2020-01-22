@@ -31,7 +31,7 @@ class PerfilGeral(models.Model):
 
 class Alternativa(models.Model):
     texto = models.CharField('Texto da alternativa', max_length=120, blank=False, null=True)
-    
+
     # cada alternativa está ligada a apenas uma pergunta
     pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE)
 
@@ -65,7 +65,7 @@ class Usuario(models.Model):
 
     # formulário que está sendo respondio
     form_atual = models.ForeignKey(Formulario, blank=True, null=True, on_delete=models.CASCADE, related_name='form_atual')
-    
+
     # set de alternativas para o formulario que está sendo respondido, só dará certo se cada alternativa pertencer a apenas uma pergunta,
     # pois assim será possivel encontra a pergunta a partir da alternativa
     alternativas = models.ManyToManyField(Alternativa, blank=True)

@@ -1,5 +1,5 @@
-﻿PRECISA:
-- Possiblitar sair do formulario e voltar depois. ###############################
+PRECISA:
+- Possiblitar sair do formulario e voltar depois. 'ok'
 - Guardar alternativas escolhidas por um usuario.
 - Criar apenas uma resposta para cada pergunta. 
 - Arrumar redirecionamentos. 
@@ -8,7 +8,8 @@
 - Setar unique=True para atributos usados em busca
 - arrumar campo de nacionalidade, curso, idade e email(melhorar validação)
 - criar permissões
-- permitir voltar as perguntas ###############################
+- Fazer controle de sessão.
+- permitir voltar as perguntas 'ok'
 - resolver problema do superuser sem usuario
 
 DA REUNIÃO:

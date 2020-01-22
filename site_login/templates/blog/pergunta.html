@@ -15,16 +15,31 @@
 <form action="{% url 'blog:resposta' formulario.id pergunta_num %}" method="POST" >
     {% csrf_token %}
     {% for alt in pergunta.alternativa_set.all %}
-    <div class="form-check" > 
-        <input 
-        type="radio"
-        name="alternativa"
-        class="form-check-input"
-        id="alternativa{{ forloop.counter }}"
-        value="{{ alt.id }}"
-        />
-        <label for="alternativa{{ forloop.counter }}">{{alt.texto}}</label>
-    </div>
+        {% if alt in user.usuario.alternativas.all %}
+        <div class="form-check" > 
+            <input 
+            type="radio"
+            name="alternativa"
+            class="form-check-input"
+            id="alternativa{{ forloop.counter }}"
+            value="{{ alt.id }}"
+            checked
+            />
+            <label for="alternativa{{ forloop.counter }}">{{alt.texto}}</label>
+        </div>
+        {% else %}
+        <div class="form-check" > 
+            <input 
+            type="radio"
+            name="alternativa"
+            class="form-check-input"
+            id="alternativa{{ forloop.counter }}"
+            value="{{ alt.id }}"
+            />
+            <label for="alternativa{{ forloop.counter }}">{{alt.texto}}</label>
+        </div>
+        {% endif %}
+
     {% endfor %}
     
     <small class="text-muted" style="float: right;">
