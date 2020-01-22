@@ -1,0 +1,47 @@
+- confirmar conta pelo email.
+- entrar com email (tirar username).
+- um bloco de perguntas por dia.
+- proxima pergunta depende da resposta anterior.
+- pessoa deve responder o bloco de uma vez.
+- nao pode voltar na pergunta anterior.
+- guardar quanto tempo a pessoa demorou pra terminar o bloco.
+- prestar atenção na integridade e homogenização dos dados.
+- perguntas (=tela) sao formadas por estimulo (midia), perguntas (texto) e alternativas.
+	- cada alternativa leva pra uma tela diferente.
+	- texto; imagem; video; som.
+- formatar os dados em estilo excel.
+- os chuncks têm 17 telas.
+- spss.
+- chunck = formulario.
+- a ultima pergunta levar para uma pagina final com um ultimo estimulo.
+- usar spa para pegar duração de cada pergunta do usuario.
+- identificar numericamente cada tela.
+- adicionar novo atributo na classe alternativa; atributo (numero) que indica para qual pagina a alternativa leva.
+- quando usuario entrar, mostrar apenas a pagina para iniciar formulario. quando iniciar formulario, sumir com tudo, deixar so o formulario pra ele fazer.
+- tirar "fale conosco".
+- quando acabar o formulario, voltar a mostrar os outros links (pagina inicial, quem somos, perfil, etc) e salvar tempo cronometrado.
+- ver o psicoPy.
+- salvar no servidor o horario dos eventos (quando começa, mudar de resposta e termina o formulario).
+- usar o youtube para mostrar os videos.
+- prazo: ele vai começar a coleta no final do semestre que vem. entregar o site 4 meses antes. 
+- no final do questionario, antes de sair, mostrar um teste (varias perguntas), com alternativas que nao levam pra outra tela (terminam o formulario).
+- site em portugues.
+- impedir que o usuario copie qualquer coisa do site.
+- adicionar o campo de linguas falados pelo usuario.
+- nao pode pausar o video.
+- pergunta agora é tela.
+- tirar o nome de cada pergunta e mudar pra um id numerico.
+
+- se o cara sair da tela, ele nao pode continuar ela.
+- se ele nao responder os formularios inteiros, ou ate mesmo nao responder um formulario inteiro de um dia, nao tem problema, ele nao é eliminado do processo.
+
+- se a pessoa sair no meio do formulario, ele pode voltar ou ele n pode mais fazer esse formulario? e se ele nao responder um formulario de um dia?
+- um formulario por dia ou formularios em sequencia indendentes do dia? -> professor ainda nao sabe. Fazer sequencialmente, independete do dia.
+	- se a pessoa perde um formulario, ele é passado para o proximo dia.
+
+- nao salvar formulários incompletos ou parados no meio.
+- ver servidor da goDaddy
+
+EXTRA:
+- adicionar o campo no usuario: maior parte do ensino medio em escola publica ou particular?
+- adicionar o campo no usuario: maior parte em faculdade publica ou particular ( faculdade atual, publica ou privada
