@@ -1,3 +1,10 @@
+FRONT:
+- Tirar o fale conosco.
+- Fazer uma pagina que desce.
+- Usuario nao pode copiar/guardar nada do site.
+- Usar API do yt (não pode pausar o vídeo).
+- Perguntar se o usuario quer sair antes de desautenticar ele.
+
 PRECISA:
 - Arrumar redirecionamentos.
 - Tratar mensagens de erro.
@@ -6,15 +13,15 @@ PRECISA:
 - arrumar campo de nacionalidade, curso, idade e email(melhorar validação).
 - criar permissões.
 - Fazer controle de sessão.
-- permitir voltar as perguntas. 'ok'
-- resolver problema do superuser sem usuario.
+- Resolver problema do superuser sem usuario.
 - Desenvolver nova lógica de formulário estilo árvore.
 - Pedir confirmação se quer sair.
 
 DA REUNIÃO:
-- Tirar username e adicionar campo de linguas falados pelo usuario.
+- Tirar username. 
+- Adicionar campo de linguas falados pelo usuario.
 - Transformar pergunta em tela:
-	- Tela tem id numérico (nativo django), estimulo (midia: foto, video, som ou texto), pergunta, alternativas e tirar o nome dela.
+	- Tela tem id numérico (nativo django), estimulo (midia: foto, video, som ou texto), pergunta, alternativas (que apontam para telas) e tirar o nome dela.
 - Adicionar novo atributo em alternativa que indica proxima página (ou fim do formulário).
 - Guardar tempo de cada tela e formulário.
 - Usar API do yt nos estímulos (não pode pausar o vídeo).
