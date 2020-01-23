@@ -1,19 +1,18 @@
 PRECISA:
-- Possiblitar sair do formulario e voltar depois. 'ok'
-- Guardar alternativas escolhidas por um usuario.
-- Criar apenas uma resposta para cada pergunta. 
-- Arrumar redirecionamentos. 
+- Arrumar redirecionamentos.
 - Tratar mensagens de erro.
 - Traduzir endpoints (account, login, etc).
-- Setar unique=True para atributos usados em busca
-- arrumar campo de nacionalidade, curso, idade e email(melhorar validação)
-- criar permissões
+- Setar unique=True para atributos usados em busca.
+- arrumar campo de nacionalidade, curso, idade e email(melhorar validação).
+- criar permissões.
 - Fazer controle de sessão.
-- permitir voltar as perguntas 'ok'
-- resolver problema do superuser sem usuario
+- permitir voltar as perguntas. 'ok'
+- resolver problema do superuser sem usuario.
+- Desenvolver nova lógica de formulário estilo árvore.
+- Pedir confirmação se quer sair.
 
 DA REUNIÃO:
-- Confirmar conta pelo email, tirar username e adicionar campo de linguas falados pelo usuario.
+- Tirar username e adicionar campo de linguas falados pelo usuario.
 - Transformar pergunta em tela:
 	- Tela tem id numérico (nativo django), estimulo (midia: foto, video, som ou texto), pergunta, alternativas e tirar o nome dela.
 - Adicionar novo atributo em alternativa que indica proxima página (ou fim do formulário).
@@ -33,13 +32,9 @@ DA REUNIÃO:
 - Impedir que o usuario copie qualquer coisa do site.
 - Impedir que usuário volte para o formulário caso saia, e torna-lo inválido.
 - Só salvar formulários válidos (completos).
-
-PERGUNTAR SE PRECISA:
+- Confirmar conta pelo email.
+- Entrar usando email.
 - Validar resposta do formulario apenas quando este acabar.
-- Implementar mudança de senha.
-- Implementar confirmação de email.
-- Pedir confirmação se quer sair. 
 
-DESNESCESSÁRIO:
-- Implementar mudança de senha por meio do email
-- Permitir entrar com email
+EXTRA:
+- Implementar mudança de senha. 
