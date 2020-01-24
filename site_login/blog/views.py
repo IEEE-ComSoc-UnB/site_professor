@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Usuario, PerfilGeral, Formulario, Pergunta, Alternativa, Resposta
+from .models import Arvore, Question, Escolha, Raiz, Tela
+
 from django.utils import timezone
 
 from django.contrib.auth.decorators import login_required # Limita o acesso de uma url apenas para usuários logados
@@ -142,4 +144,22 @@ def formConcluido(request):
         'forms_repondidos': forms_respondidos
     }
     return render(request, 'blog/form_concluido.html', context)
+
+
+# ===================
+
+def arvore(request, tela_id=None):
+    if tela_id:
+        tela_atual = Tela.objects.get(pk=tela_id)
+    else:
+        tela_atual = Raiz.objects.all()[0].tela
+        
+    escolhas = tela_atual.question.escolha_set.all()
+    
+
+    context= {
+        'tela':tela_atual,
+        'escolhas': escolhas
+    }
+    return render(request, 'blog/tela.html', context)
 

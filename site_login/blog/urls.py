@@ -12,5 +12,8 @@ urlpatterns = [
     path('formulario/<int:form_id>/pergunta/<int:pergunta_num>', views.pergunta, name='pergunta'),
     path('formulario/<int:form_id>/pergunta/<int:pergunta_num>/resposta', views.resposta, name='resposta'),
     path('formulario/', views.formConcluido, name='formConcluido'),
+
+    path('arvore/', views.arvore, name='arvore'),
+    path('arvore/<int:tela_id>', views.arvore, name='arvore'),
     
 ]

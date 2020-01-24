@@ -89,4 +89,50 @@ class Resposta(models.Model):
     def __str__(self):
         return self.usuario.nome + ': ' + self.pergunta.nome
 
-# considerar perguntas com 4 alternativas e formulários com 12 perguntas (exemplo)
+# ================================================
+
+class Arvore(models.Model):
+    nome = models.CharField('Nome do Formulário', null=True, blank=False,max_length=120)
+
+    def __str__(self):
+        return self.nome
+
+
+
+
+class Question(models.Model):
+    texto = models.CharField('Texto da Question', max_length=120, blank=False, null=True)
+
+    def __str__(self):
+        return self.texto
+
+
+class Tela(models.Model):
+    arvore = models.ForeignKey(Arvore,on_delete=models.CASCADE, null = True)
+    nome = models.CharField('Nome da Tela', null=True, blank=False, max_length=120)
+    question = models.OneToOneField(Question, on_delete=models.DO_NOTHING, null=True, blank=True)
+    
+    # estimulo = "alguma mídia"
+    # pergunta = models.CharField('Pergunta', max_length=120, blank=False)
+
+    def __str__(self):
+        return self.nome
+
+
+class Escolha(models.Model):
+    nome = models.CharField('Nome da Escolha', null=True, blank=False, max_length=120)
+    question = models.ForeignKey(Question,on_delete=models.CASCADE, null = True, blank=True)
+    tela = models.ForeignKey(Tela ,on_delete=models.CASCADE, null = True, blank=True)
+    
+    def __str__(self):
+        return self.nome
+    
+
+
+class Raiz(models.Model):
+    tela = models.OneToOneField(Tela, on_delete=models.DO_NOTHING, null=True,blank=False)
+    # tempo de duração, etc
+
+    def __str__(self):
+        return self.tela.nome
+

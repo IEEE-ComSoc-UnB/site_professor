@@ -52,6 +52,7 @@
         <a class="nav-item nav-link" href="{% url 'account:register' %}">Registrar</a>
           <a class="nav-item nav-link" href="{% url 'account:login' %}">Entrar</a>
         {% else %}
+        <a class="nav-item nav-link" href="{% url 'blog:arvore'%}">Arvore</a>
           <a class="nav-item nav-link" href="{% url 'account:perfilVisualizar' %}">Perfil de {{user.username}}</a>
           <a class="nav-item nav-link" href="{% url 'account:logout' %}">Sair</a>
         </div>
