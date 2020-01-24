@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block formulario %}
+
+<h1 class="text=-center mb-3 mt-4">{{ tela.question.texto }}</h1>
+
+    {% for escolha in escolhas %}
+        <a href="{% url 'blog:arvore' escolha.tela.id %}" class="btn btn-primary btn-lg btn-block mt-4 mb-4">{{escolha.nome}}</a>  
+    {% endfor %}
+
+{% endblock %}

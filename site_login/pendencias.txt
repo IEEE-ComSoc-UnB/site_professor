@@ -45,3 +45,8 @@ DA REUNIÃO:
 
 EXTRA:
 - Implementar mudança de senha. 
+
+
+
+-> Impedir looping de perguntas (com middleware)
+-> Escolher perguntas usando field ID criado pela gente
