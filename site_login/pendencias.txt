@@ -1,8 +1,52 @@
-- Adicionar escolaridade Ensino Superior Inclompleto.
+FRONT:
+- Tirar o fale conosco.
+- Fazer uma pagina que desce.
+- Usuario nao pode copiar/guardar nada do site.
+- Usar API do yt (não pode pausar o vídeo).
+- Perguntar se o usuario quer sair antes de desautenticar ele.
+
+PRECISA:
 - Arrumar redirecionamentos.
 - Tratar mensagens de erro.
-- Implementar mudança de senha e confirmação de email.
-- Entender o parâmetro action da tag form.
 - Traduzir endpoints (account, login, etc).
-- permitir entrar com email
-- arrumar campo de nacionalidade, curso, idade e email(melhorar validação)
+- Setar unique=True para atributos usados em busca.
+- arrumar campo de nacionalidade, curso, idade e email(melhorar validação).
+- criar permissões.
+- Fazer controle de sessão.
+- Resolver problema do superuser sem usuario.
+- Desenvolver nova lógica de formulário estilo árvore.
+- Pedir confirmação se quer sair.
+
+DA REUNIÃO:
+- Tirar username. 
+- Adicionar campo de linguas falados pelo usuario.
+- Transformar pergunta em tela:
+	- Tela tem id numérico (nativo django), estimulo (midia: foto, video, som ou texto), pergunta, alternativas (que apontam para telas) e tirar o nome dela.
+- Adicionar novo atributo em alternativa que indica proxima página (ou fim do formulário).
+- Guardar tempo de cada tela e formulário.
+- Usar API do yt nos estímulos (não pode pausar o vídeo).
+- Quando usuário iniciar formulário, sumir todos links e limpar tela. Voltar ao normal quando ele terminar.
+- Invalidar formulários longos ou incompletos.
+- Formulário = tela inicial.
+- Nova classe "resposta formulário" com os fields:
+	- usuário, respostas, tempo total do formulário, validez (pelo tempo total ou se o usuário saiu durante).
+- Acessar os formulários sequencialmente, um por dia.
+- Formatar banco de dados em arquivo excel.
+- Tela final com último estimulo/teste com várias perguntas.
+- Tirar "fale conosco".
+- Fazer uma página só, que desce.
+- Salvar cronômetro quando terminar o formulário.
+- Impedir que o usuario copie qualquer coisa do site.
+- Impedir que usuário volte para o formulário caso saia, e torna-lo inválido.
+- Só salvar formulários válidos (completos).
+- Confirmar conta pelo email.
+- Entrar usando email.
+- Validar resposta do formulario apenas quando este acabar.
+
+EXTRA:
+- Implementar mudança de senha. 
+
+
+
+-> Impedir looping de perguntas (com middleware)
+-> Escolher perguntas usando field ID criado pela gente

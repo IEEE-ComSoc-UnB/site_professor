@@ -29,6 +29,18 @@ class PerfilGeral(models.Model):
     def __str__(self):
         return self.nome
 
+class Alternativa(models.Model):
+    texto = models.CharField('Texto da alternativa', max_length=120, blank=False, null=True)
+
+    # cada alternativa está ligada a apenas uma pergunta
+    pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE)
+
+    # Dados: quantas vezes escolhida, tempo médio de tempo de respota, etc...
+
+    def __str__(self):
+        return self.texto
+
+
 class Usuario(models.Model):
 
     escolaridades = [('FI',   'Ensino Fundamental Incompleto'),
@@ -51,6 +63,13 @@ class Usuario(models.Model):
     # formulários respondidos
     formularios = models.ManyToManyField(Formulario, blank=True)
 
+    # formulário que está sendo respondio
+    form_atual = models.ForeignKey(Formulario, blank=True, null=True, on_delete=models.CASCADE, related_name='form_atual')
+
+    # set de alternativas para o formulario que está sendo respondido, só dará certo se cada alternativa pertencer a apenas uma pergunta,
+    # pois assim será possivel encontra a pergunta a partir da alternativa
+    alternativas = models.ManyToManyField(Alternativa, blank=True)
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, null = True)
     perfil_especifico = models.ForeignKey(PerfilGeral, on_delete=models.DO_NOTHING, max_length=120, null=True, editable=False)
 
@@ -58,16 +77,6 @@ class Usuario(models.Model):
     def __str__(self):
         return self.nome
 
-class Alternativa(models.Model):
-    texto = models.CharField('Texto da alternativa', max_length=120, blank=False, null=True)
-    
-    # cada alternativa está ligada a apenas uma pergunta
-    pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE)
-
-    # Dados: quantas vezes escolhida, tempo médio de tempo de respota, etc...
-
-    def __str__(self):
-        return self.texto
     
 
 class Resposta(models.Model):
@@ -80,4 +89,50 @@ class Resposta(models.Model):
     def __str__(self):
         return self.usuario.nome + ': ' + self.pergunta.nome
 
-# considerar perguntas com 4 alternativas e formulários com 12 perguntas (exemplo)
+# ================================================
+
+class Arvore(models.Model):
+    nome = models.CharField('Nome do Formulário', null=True, blank=False,max_length=120)
+
+    def __str__(self):
+        return self.nome
+
+
+
+
+class Question(models.Model):
+    texto = models.CharField('Texto da Question', max_length=120, blank=False, null=True)
+
+    def __str__(self):
+        return self.texto
+
+
+class Tela(models.Model):
+    arvore = models.ForeignKey(Arvore,on_delete=models.CASCADE, null = True)
+    nome = models.CharField('Nome da Tela', null=True, blank=False, max_length=120)
+    question = models.OneToOneField(Question, on_delete=models.DO_NOTHING, null=True, blank=True)
+    
+    # estimulo = "alguma mídia"
+    # pergunta = models.CharField('Pergunta', max_length=120, blank=False)
+
+    def __str__(self):
+        return self.nome
+
+
+class Escolha(models.Model):
+    nome = models.CharField('Nome da Escolha', null=True, blank=False, max_length=120)
+    question = models.ForeignKey(Question,on_delete=models.CASCADE, null = True, blank=True)
+    tela = models.ForeignKey(Tela ,on_delete=models.CASCADE, null = True, blank=True)
+    
+    def __str__(self):
+        return self.nome
+    
+
+
+class Raiz(models.Model):
+    tela = models.OneToOneField(Tela, on_delete=models.DO_NOTHING, null=True,blank=False)
+    # tempo de duração, etc
+
+    def __str__(self):
+        return self.tela.nome
+

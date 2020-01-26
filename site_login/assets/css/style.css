@@ -48,6 +48,7 @@ header {
 header img {
   height: 3rem;
   cursor: pointer;
+  margin-left: 55px;
 }
 header .login {
   background-color: #4ad893;
@@ -79,7 +80,17 @@ header ul {
   justify-self: right;
   margin: 0;
 }
-header li {
+
+header ul:first-child li {
+  display: inline;
+  margin-left: 55px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 400ms color;
+  color: #eee;
+}
+
+header ul:nth-child(2) li {
   display: inline;
   margin-right: 55px;
   font-size: 1.2rem;
@@ -91,9 +102,10 @@ header li:hover {
   color: #4ad893;
 }
 
-/* .link-navbar{
+header a{
+  margin: 0;
   text-decoration: none;
-} */
+}
 
 /* MEDIA QUERIES HEADER */
 @media screen and (max-width: 865px) {
