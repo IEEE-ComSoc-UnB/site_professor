@@ -1,4 +1,4 @@
-/* VARIAVEIS */
+VARIAVEIS
 /* CONFIGURACOES GERAIS */
 html {
   scroll-behavior: smooth;
@@ -8,7 +8,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #eee;
+  background-color: #eee; 
   color: #241f20;
   font-family: sans-serif, helvetica;
 
@@ -78,6 +78,7 @@ header .hamburguer {
 header ul {
   align-self: center;
   justify-self: right;
+  margin: 0;
 }
 
 header ul:first-child li {
