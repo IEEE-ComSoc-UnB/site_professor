@@ -15,5 +15,6 @@ urlpatterns = [
 
     path('arvore/', views.arvore, name='arvore'),
     path('arvore/<int:tela_id>', views.arvore, name='arvore'),
+    path('arvore/<int:arvore_id>/concluida', views.arvoreConcluida, name='arvoreConcluida'),
     
 ]

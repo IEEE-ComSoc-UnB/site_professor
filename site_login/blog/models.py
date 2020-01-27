@@ -60,6 +60,9 @@ class Usuario(models.Model):
     curso = models.CharField('Curso', max_length=120, blank=False, null=True)
     nacionalidade = models.CharField('Nacionalidade', max_length=120, blank=False, null=True)
 
+    arvores = models.ManyToManyField('Arvore', blank =True)
+    # arvores = models.ManyToManyField('Arvore', blank =True, editable=False)
+
     # formulários respondidos
     formularios = models.ManyToManyField(Formulario, blank=True)
 
@@ -97,21 +100,11 @@ class Arvore(models.Model):
     def __str__(self):
         return self.nome
 
-
-
-
-class Question(models.Model):
-    texto = models.CharField('Texto da Question', max_length=120, blank=False, null=True)
-
-    def __str__(self):
-        return self.texto
-
-
 class Tela(models.Model):
     arvore = models.ForeignKey(Arvore,on_delete=models.CASCADE, null = True)
     nome = models.CharField('Nome da Tela', null=True, blank=False, max_length=120)
-    question = models.OneToOneField(Question, on_delete=models.DO_NOTHING, null=True, blank=True)
-    
+    ultimo = models.BooleanField('É um teste', default=False, blank=False)
+    question = models.OneToOneField('Question', on_delete=models.DO_NOTHING, null=True, blank=True)
     # estimulo = "alguma mídia"
     # pergunta = models.CharField('Pergunta', max_length=120, blank=False)
 
@@ -119,10 +112,33 @@ class Tela(models.Model):
         return self.nome
 
 
+
+class Question(models.Model):
+    # tela = models.OneToOneField(Tela, on_delete=models.DO_NOTHING, null=True, blank=True)
+    texto = models.CharField('Texto da Question', max_length=120, blank=False, null=True)
+    tela_filha = models.ManyToManyField(Tela, through='Escolha', related_name='tela_filha')
+    def __str__(self):
+        return self.texto
+
+
+
+def limitar_tela_filha(question):
+    arvore_pai = question.tela.arvore
+    return {'arvore':arvore_pai}
+
+
 class Escolha(models.Model):
+
     nome = models.CharField('Nome da Escolha', null=True, blank=False, max_length=120)
     question = models.ForeignKey(Question,on_delete=models.CASCADE, null = True, blank=True)
+
     tela = models.ForeignKey(Tela ,on_delete=models.CASCADE, null = True, blank=True)
+    
+    # def limitar_tela_filha():
+    #     arvore_pai = question.tela.arvore
+    #     return {'arvore':arvore_pai}
+
+    # tela = models.ForeignKey(Tela ,on_delete=models.CASCADE, null = True, blank=True, limit_choices_to=limitar_tela_filha(question))
     
     def __str__(self):
         return self.nome
@@ -135,4 +151,5 @@ class Raiz(models.Model):
 
     def __str__(self):
         return self.tela.nome
+
 

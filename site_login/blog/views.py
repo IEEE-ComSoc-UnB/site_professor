@@ -149,6 +149,11 @@ def formConcluido(request):
 # ===================
 
 def arvore(request, tela_id=None):
+    tela_do_dia = Raiz.objects.all()[0].tela.arvore
+    if tela_do_dia in request.user.usuario.arvores.all():
+        # arvore já respondida
+        return render(request, 'blog/arvoreConcluida.html',{})
+
     if tela_id:
         tela_atual = Tela.objects.get(pk=tela_id)
     else:
@@ -162,4 +167,10 @@ def arvore(request, tela_id=None):
         'escolhas': escolhas
     }
     return render(request, 'blog/tela.html', context)
+
+def arvoreConcluida(request, arvore_id):
+    usuario = request.user.usuario
+    arvore = Arvore.objects.get(pk=arvore_id)
+    usuario.arvores.add(arvore)
+    return render(request, 'blog/arvoreConcluida.html',{})
 

@@ -34,6 +34,7 @@ class PerfilGeralAdmin(admin.ModelAdmin):
 class TelaInline(admin.TabularInline):
     model = Tela
     extra = 0
+    
 
 
 class RaizAdmin(admin.ModelAdmin):
