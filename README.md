@@ -18,9 +18,6 @@
 - CSS:
   - SaSS;
   - Bootstrap;
-- JS: 
-  - React;
-  - React Router;
 
 ### Tecnologias usadas no Back:
 - Python 3.8.0:
